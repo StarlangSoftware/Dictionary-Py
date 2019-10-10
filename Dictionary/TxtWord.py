@@ -5,19 +5,6 @@ from Dictionary.Word import Word
 class TxtWord(Word):
 
     """
-    A constructor of TxtWord class which takes a String name as an input and calls its super class Word
-    with given name. Then, creates a new list as flags.
-
-    PARAMETERS
-    ----------
-    name : str
-        String name.
-    """
-    def __init__(self, name : str):
-        super().__init__(name)
-        self.flags = []
-
-    """
     Another constructor of TxtWord class which takes a String name and a flag as inputs and calls its super class Word
     with given name. Then, creates a new list as flags and calls addFlag method with given flag.
 
@@ -28,10 +15,11 @@ class TxtWord(Word):
     flag : str
         String input.
     """
-    def initWithFlag(self, name : str, flag : str):
+    def __init__(self, name : str, flag=None):
         super().__init__(name)
         self.flags = []
-        self.addFlag(flag)
+        if flag is not None:
+            self.addFlag(flag)
 
     """
     The addFlag method takes a String flag as an input and adds given flag to the flags list.

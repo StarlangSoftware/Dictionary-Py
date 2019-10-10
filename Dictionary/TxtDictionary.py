@@ -7,16 +7,8 @@ from Dictionary.TxtWord import TxtWord
 class TxtDictionary(Dictionary):
 
     """
-    A constructor of TxtDictionary class which calls its super class Dictionary.
-    """
-    def __init__(self):
-        super().__init__()
-        self.filename = "resources/turkish_dictionary.txt"
-        self.loadFromText(self.filename)
-
-    """
-    Another constructor of TxtDictionary class which takes a String filename as input. And calls its super class 
-    Dictionary, assigns given filename input to the filename variable. Then, it calls loadFromText method with given 
+    Constructor of TxtDictionary class which takes a String filename as input. And calls its super class
+    Dictionary, assigns given filename input to the filename variable. Then, it calls loadFromText method with given
     filename.
 
     PARAMETERS
@@ -24,9 +16,15 @@ class TxtDictionary(Dictionary):
     filename : str
         String input.
     """
-    def initWithFileName(self, fileName : str):
+    def __init__(self, fileName=None, misspelledFileName=None):
+        super().__init__()
+        if fileName is None:
+            fileName = "resources/turkish_dictionary.txt"
         self.filename = fileName
         self.loadFromText(self.filename)
+        self.misspelledWords = {}
+        if misspelledFileName is not None:
+            self.loadMisspelledWords(misspelledFileName)
 
     """
     The addNumber method takes a String name and calls addWithFlag method with given name and IS_SAYI flag.
@@ -273,6 +271,41 @@ class TxtDictionary(Dictionary):
                     currentWord.addFlag(list[i])
                 self.words.append(currentWord)
         self.words.sort()
+
+    """
+    The loadMisspellWords method takes a String filename as an input. It reads given file line by line and splits
+    according to space and assigns each word with its misspelled form to the the misspelledWords hashMap.
+
+    PARAMETERS
+    ----------
+    fileName : str
+        File name input.
+    """
+    def loadMisspelledWords(self, fileName: str):
+        input = open(fileName, "r")
+        lines = input.readlines()
+        for line in lines:
+            list = line.split()
+            if len(list) == 2:
+                self.misspelledWords[list[0]] = list[1]
+
+    """
+    The getCorrectForm returns the correct form of a misspelled word.
+
+    PARAMETERS
+    ----------
+    misspelledWord : str
+        Misspelled form.
+        
+    RETURNS
+    -------
+    str
+        Correct form.
+    """
+    def getCorrectForm(self, misspelledWord: str) -> str:
+        if misspelledWord in self.misspelledWords:
+            return self.misspelledWords[misspelledWord]
+        return ""
 
     """
     The saveAsTxt method takes a filename as an input and prints out the items of words list.
