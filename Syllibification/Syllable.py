@@ -1,5 +1,7 @@
 class Syllable:
 
+    __syllable: str
+
     """
     A constructor of Syllable class which takes a String as an input and initializes syllable variable with given input.
 
@@ -8,8 +10,8 @@ class Syllable:
     syllable : str
         String input.
     """
-    def __init__(self, syllable : str):
-        self.syllable = syllable
+    def __init__(self, syllable: str):
+        self.__syllable = syllable
 
     """
     Getter for the syllable variable.
@@ -20,4 +22,4 @@ class Syllable:
         The syllable variable.
     """
     def getText(self) -> str:
-        return self.syllable
+        return self.__syllable

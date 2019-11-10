@@ -4,6 +4,8 @@ import re
 
 class Word:
 
+    name: str
+
     """
     A constructor of Word class which gets a String name as an input and assigns to the name variable.
 
@@ -12,7 +14,7 @@ class Word:
     name : str
         String input.
     """
-    def __init__(self, name : str):
+    def __init__(self, name: str):
         self.name = name
 
     """
@@ -43,7 +45,6 @@ class Word:
     def charCount(self) -> int:
         return len(self.name)
 
-
     """
     Getter for the name variable.
 
@@ -63,7 +64,7 @@ class Word:
     name : str
         String input.
     """
-    def setName(self, name : str):
+    def setName(self, name: str):
         self.name = name
 
     """
@@ -80,7 +81,7 @@ class Word:
     bool
         true if the character at first index of surfaceForm is a capital letter, false otherwise.
     """
-    def isCapital(surfaceForm : str) -> bool:
+    def isCapital(surfaceForm: str) -> bool:
         return surfaceForm[0] in TurkishLanguage.UPPERCASE_LETTERS
 
     """
@@ -101,7 +102,7 @@ class Word:
     bool
         true if it is a punctuation, false otherwise.
     """
-    def isPunctuation(surfaceForm : str) -> bool:
+    def isPunctuation(surfaceForm: str) -> bool:
         return surfaceForm == "." or surfaceForm == "..." or surfaceForm == "[" or surfaceForm == "]" or \
             surfaceForm == "\u2026" or surfaceForm == "%" or surfaceForm == "&" or surfaceForm == "=" or \
             surfaceForm == "\u0060\u0060" or surfaceForm == "\u0060" or surfaceForm == "''" or surfaceForm == "$" or \
@@ -126,7 +127,7 @@ class Word:
     bool
         true if it equals to "bay" or "bayan", false otherwise.
     """
-    def isHonorific(surfaceForm : str) -> bool:
+    def isHonorific(surfaceForm: str) -> bool:
         lowerCase = surfaceForm.lower()
         return lowerCase == "bay" or lowerCase == "bayan"
 
@@ -144,7 +145,7 @@ class Word:
     bool
         true if it equals to "corp", "inc.", or "co.", and false otherwise.
     """
-    def isOrganization(surfaceForm : str) -> bool:
+    def isOrganization(surfaceForm: str) -> bool:
         lowerCase = surfaceForm.lower()
         return lowerCase == "corp" or lowerCase == "inc." or lowerCase == "co."
 
@@ -163,7 +164,7 @@ class Word:
         true if it equals to one of the dolar, sterlin, paunt, ons, ruble, mark, frank, yan, sent, yen' or $, and 
         false otherwise.
     """
-    def isMoney(surfaceForm : str) -> bool:
+    def isMoney(surfaceForm: str) -> bool:
         lowerCase = surfaceForm.lower()
         return lowerCase.startswith("dolar") or lowerCase.startswith("sterlin") or lowerCase.startswith("paunt") or lowerCase.startswith("ons") or lowerCase.startswith("ruble") or lowerCase.startswith("mark") or lowerCase.startswith("frank") or lowerCase == "yen" or lowerCase.startswith("sent") or lowerCase.startswith("cent") or lowerCase.startswith("yen'") or ("$" in lowerCase)
 
@@ -228,7 +229,7 @@ class Word:
     list
         Word type list.
     """
-    def toWordArray(sourceArray : list) -> list:
+    def toWordArray(sourceArray: list) -> list:
         result = []
         for word in sourceArray:
             result.append(Word(word))

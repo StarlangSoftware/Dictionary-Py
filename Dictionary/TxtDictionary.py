@@ -6,6 +6,8 @@ from Dictionary.TxtWord import TxtWord
 
 class TxtDictionary(Dictionary):
 
+    __misspelledWords: dict
+
     """
     Constructor of TxtDictionary class which takes a String filename as input. And calls its super class
     Dictionary, assigns given filename input to the filename variable. Then, it calls loadFromText method with given
@@ -22,7 +24,7 @@ class TxtDictionary(Dictionary):
             fileName = "resources/turkish_dictionary.txt"
         self.filename = fileName
         self.loadFromText(self.filename)
-        self.misspelledWords = {}
+        self.__misspelledWords = {}
         if misspelledFileName is not None:
             self.loadMisspelledWords(misspelledFileName)
 
@@ -115,7 +117,7 @@ class TxtDictionary(Dictionary):
     bool
         true if given name is in words list, false otherwise.
     """
-    def addVerb(self, name : str)-> bool:
+    def addVerb(self, name: str)-> bool:
         return self.addWithFlag(name, "CL_FIIL")
 
     """
@@ -131,7 +133,7 @@ class TxtDictionary(Dictionary):
     bool
         true if given name is in words list, false otherwise.
     """
-    def addAdjective(self, name : str)-> bool:
+    def addAdjective(self, name: str)-> bool:
         return self.addWithFlag(name, "IS_ADJ")
 
     """
@@ -163,7 +165,7 @@ class TxtDictionary(Dictionary):
     bool
         true if given name is in words list, false otherwise.
     """
-    def addPronoun(self, name : str)-> bool:
+    def addPronoun(self, name: str)-> bool:
         return self.addWithFlag(name, "IS_ZM")
 
     """
@@ -185,7 +187,7 @@ class TxtDictionary(Dictionary):
     bool
         true if given name is in words list, false otherwise.
     """
-    def addWithFlag(self, name : str, flag : str)-> bool:
+    def addWithFlag(self, name: str, flag: str)-> bool:
         if self.getWord(name.lower()) is None:
             word = TxtWord(name.lower())
             word.addFlag(flag)
@@ -287,7 +289,7 @@ class TxtDictionary(Dictionary):
         for line in lines:
             list = line.split()
             if len(list) == 2:
-                self.misspelledWords[list[0]] = list[1]
+                self.__misspelledWords[list[0]] = list[1]
 
     """
     The getCorrectForm returns the correct form of a misspelled word.
@@ -303,8 +305,8 @@ class TxtDictionary(Dictionary):
         Correct form.
     """
     def getCorrectForm(self, misspelledWord: str) -> str:
-        if misspelledWord in self.misspelledWords:
-            return self.misspelledWords[misspelledWord]
+        if misspelledWord in self.__misspelledWords:
+            return self.__misspelledWords[misspelledWord]
         return ""
 
     """
@@ -315,7 +317,7 @@ class TxtDictionary(Dictionary):
     filename : str
         String input.
     """
-    def saveAsTxt(self, fileName : str):
+    def saveAsTxt(self, fileName: str):
         output = open(fileName, "w")
         for word in self.words:
             print(word, file=output)
@@ -342,7 +344,7 @@ class TxtDictionary(Dictionary):
     word : TxtWord
         the original word.
     """
-    def addWordWhenRootSoften(self, trie : Trie, last : chr, root : str, word : TxtWord):
+    def addWordWhenRootSoften(self, trie: Trie, last: chr, root : str, word : TxtWord):
         if last == 'p':
             trie.addWord(root + 'b', word)
         elif last == 'ç':

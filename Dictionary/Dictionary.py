@@ -4,6 +4,9 @@ from Dictionary.Word import Word
 
 class Dictionary:
 
+    words: list
+    filename: str
+
     """
     An empty constructor of Dictionary class.
     """

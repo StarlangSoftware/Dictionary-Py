@@ -3,13 +3,17 @@ from Dictionary.Word import Word
 
 
 class TrieNode:
+
+    __children: dict
+    __words: set
+
     """
     A constructor of TrieNode class which creates a new children.
     """
 
     def __init__(self):
-        self.children = {}
-        self.words = set()
+        self.__children = {}
+        self.__words = set()
 
     """
     The addWord method takes a String word, an index, and a Word root as inputs. First it creates a TrieNode child
@@ -31,15 +35,15 @@ class TrieNode:
     """
     def addWord(self, word: str, root: Word, index=0):
         if index == len(word):
-            self.words.add(root)
+            self.__words.add(root)
             return
         ch = word[index]
-        if ch in self.children:
-            child = self.children[ch]
+        if ch in self.__children:
+            child = self.__children[ch]
         else:
             child = TrieNode()
         child.addWord(word, root, index + 1)
-        self.children[ch] = child
+        self.__children[ch] = child
 
     """
     The getChild method takes a character and gets its corresponding value from children dictionary.
@@ -54,8 +58,8 @@ class TrieNode:
     TreeNode
         the value from children dictionary.
     """
-    def getChild(self, ch : chr) -> TrieNode:
-        return self.children.get(ch)
+    def getChild(self, ch: chr) -> TrieNode:
+        return self.__children.get(ch)
 
     """
     The getWords method returns the words set.
@@ -67,4 +71,4 @@ class TrieNode:
         the words set.
     """
     def getWords(self) -> set:
-        return self.words
+        return self.__words

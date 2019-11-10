@@ -3,6 +3,9 @@ from Dictionary.Pos import Pos
 
 class ExceptionalWord(Word):
 
+    __root: str
+    __pos: Pos
+
     """
     A constructor of ExceptionalWord class which takes a Pos as a  part of speech and two Strings; name
     and root as inputs. Then, calls its super class Word with given name and initialises root and pos variables
@@ -17,10 +20,10 @@ class ExceptionalWord(Word):
     pos : Pos
         Pos type input.
     """
-    def __init__(self, name : str, root : str, pos : Pos):
+    def __init__(self, name: str, root: str, pos: Pos):
         super().__init__(name)
-        self.root = root
-        self.pos = pos
+        self.__root = root
+        self.__pos = pos
 
     """
     Getter for the root variable.
@@ -31,7 +34,7 @@ class ExceptionalWord(Word):
         root variable.
     """
     def getRoot(self) -> str:
-        return self.root
+        return self.__root
 
     """
     Getter for the pos variable.
@@ -42,4 +45,4 @@ class ExceptionalWord(Word):
         pos variable.
     """
     def getPos(self) -> Pos:
-        return self.pos
+        return self.__pos

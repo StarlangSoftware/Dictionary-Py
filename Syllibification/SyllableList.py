@@ -4,6 +4,8 @@ from Syllibification.Syllable import Syllable
 
 class SyllableList:
 
+    __syllables: list
+
     """
      A constructor of SyllableList class which takes a String word as an input. First it creates a syllable
      list and a sbSyllable. Then it loops i times, where i ranges from 0 to length of given word, first
@@ -22,7 +24,7 @@ class SyllableList:
         String input.
     """
     def __init__(self, word : str):
-        self.syllables = []
+        self.__syllables = []
         sbSyllable = ""
         i = 0
         while i < len(word):
@@ -35,7 +37,7 @@ class SyllableList:
                 if i == len(word) - 2:
                     sbSyllable += word[i + 1]
                     i = i + 1
-                self.syllables.append(Syllable(sbSyllable))
+                self.__syllables.append(Syllable(sbSyllable))
                 sbSyllable = ""
             else:
                 # A syllable should not start with two consonants.
@@ -43,16 +45,16 @@ class SyllableList:
                 if len(tempSyl) == 1:
                     # The previous character was also a consonant.
                     if not TurkishLanguage.isVowel(tempSyl[0]):
-                        if len(self.syllables) == 0:
+                        if len(self.__syllables) == 0:
                             break
-                        lastPos = len(self.syllables) - 1
-                        str = self.syllables[lastPos].getText()
+                        lastPos = len(self.__syllables) - 1
+                        str = self.__syllables[lastPos].getText()
                         str = str + tempSyl
                         if isLastChar:
                             #If the last char is also a consonant, add it to latest syllable. Ex: 'park'.
                             str = str + c
                         # Update previous syllable.
-                        self.syllables[lastPos] = Syllable(str)
+                        self.__syllables[lastPos] = Syllable(str)
                         sbSyllable = ""
                 sbSyllable += c
             i = i + 1
@@ -68,6 +70,6 @@ class SyllableList:
     """
     def getSyllables(self) -> list:
         syllables = []
-        for syllable in self.syllables:
+        for syllable in self.__syllables:
             syllables.append(syllable.getText())
         return syllables
