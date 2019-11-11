@@ -17,6 +17,9 @@ class Word:
     def __init__(self, name: str):
         self.name = name
 
+    def __hash__(self):
+        return hash(self.name)
+
     """
     The overridden __str__ method returns the name variable.
 
