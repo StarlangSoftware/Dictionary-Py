@@ -28,7 +28,7 @@ class Dictionary:
     Word
         the item at found index of words {@link ArrayList}, null if cannot be found.
     """
-    def getWord(self, name : str) -> Word:
+    def getWord(self, name: str) -> Word:
         word = Word(name)
         middle = bisect_left(self.words, word)
         if self.words[middle] == word:
@@ -49,12 +49,25 @@ class Dictionary:
     int
         found index of words list, -1 if cannot be found.
     """
-    def getWordIndex(self, name : str) -> int:
+    def getWordIndex(self, name: str) -> int:
         word = Word(name)
         middle = bisect_left(self.words, word)
         if self.words[middle] == word:
             return middle
         return -1
+
+    """
+    RemoveWord removes a word with the given name
+    
+    PARAMETERS
+    ----------
+    name : str
+        Name of the word to be removed.
+    """
+    def removeWord(self, name: str):
+        index = self.getWordIndex(name)
+        if index != -1:
+            self.words.pop(index)
 
     """
     The size method returns the size of the words list.
