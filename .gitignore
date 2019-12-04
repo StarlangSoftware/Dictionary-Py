@@ -367,3 +367,6 @@ NlpToolkit_Dictionary.egg-info/top_level.txt
 Syllibification/__pycache__/__init__.cpython-37.pyc
 Syllibification/__pycache__/Syllable.cpython-37.pyc
 Syllibification/__pycache__/SyllableList.cpython-37.pyc
+dist/NlpToolkit-Dictionary-1.0.3.tar.gz
+dist/NlpToolkit-Dictionary-1.0.4.tar.gz
+dist/NlpToolkit-Dictionary-1.0.5.tar.gz
