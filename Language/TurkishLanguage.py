@@ -64,7 +64,7 @@ class TurkishLanguage(Language):
         true if given character is a front vowel.
     """
 
-    def isFrontVowel(ch: chr) -> bool:
+    def isFrontVowel(ch: str) -> bool:
         return ch in TurkishLanguage.FRONT_VOWELS
 
     """
@@ -82,7 +82,7 @@ class TurkishLanguage(Language):
         true if given character is a back rounded vowel.
     """
 
-    def isBackRoundedVowel(ch: chr) -> bool:
+    def isBackRoundedVowel(ch: str) -> bool:
         return ch in TurkishLanguage.BACK_ROUNDED_VOWELS
 
     """
@@ -100,7 +100,7 @@ class TurkishLanguage(Language):
         true if given character is a front rounded vowel.
     """
 
-    def isFrontRoundedVowel(ch: chr) -> bool:
+    def isFrontRoundedVowel(ch: str) -> bool:
         return ch in TurkishLanguage.FRONT_ROUNDED_VOWELS
 
     """
@@ -118,7 +118,7 @@ class TurkishLanguage(Language):
         true if given character is a back unrounded vowel.
     """
 
-    def isBackUnroundedVowel(ch: chr) -> bool:
+    def isBackUnroundedVowel(ch: str) -> bool:
         return ch in TurkishLanguage.BACK_UNROUNDED_VOWELS
 
     """
@@ -136,7 +136,7 @@ class TurkishLanguage(Language):
         true if given character is a front unrounded vowel.
     """
 
-    def isFrontUnroundedVowel(ch: chr) -> bool:
+    def isFrontUnroundedVowel(ch: str) -> bool:
         return ch in TurkishLanguage.FRONT_UNROUNDED_VOWELS
 
     """
@@ -153,7 +153,7 @@ class TurkishLanguage(Language):
         true if given character is a dropping consonant.
     """
 
-    def isConsonantDrop(ch: chr) -> bool:
+    def isConsonantDrop(ch: str) -> bool:
         return ch in TurkishLanguage.CONSONANT_DROPS
 
     """
@@ -170,7 +170,7 @@ class TurkishLanguage(Language):
         true if given character is a consonant.
     """
 
-    def isConsonant(ch: chr) -> bool:
+    def isConsonant(ch: str) -> bool:
         return ch in TurkishLanguage.CONSONANTS
 
     """
@@ -187,5 +187,5 @@ class TurkishLanguage(Language):
         true if given character is a sert sessiz.
     """
 
-    def isSertSessiz(ch: chr) -> bool:
+    def isSertSessiz(ch: str) -> bool:
         return ch in TurkishLanguage.SERT_SESSIZ

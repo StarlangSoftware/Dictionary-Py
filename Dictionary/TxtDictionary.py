@@ -21,7 +21,7 @@ class TxtDictionary(Dictionary):
     def __init__(self, fileName=None, misspelledFileName=None):
         super().__init__()
         if fileName is None:
-            fileName = "resources/turkish_dictionary.txt"
+            fileName = "turkish_dictionary.txt"
         self.filename = fileName
         self.loadFromText(self.filename)
         self.__misspelledWords = {}
