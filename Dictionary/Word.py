@@ -88,7 +88,7 @@ class Word:
         return surfaceForm[0] in TurkishLanguage.UPPERCASE_LETTERS
 
     """
-    The isPunctuation method takes a String surfaceForm as an input and returns true if it is a punctuation, false otherwise.
+    The isPunctuationSymbol method takes a String surfaceForm as an input and returns true if it is a punctuation, false otherwise.
     Grave accent : \u0060
     Left quotation mark : \u201C
     Right quotation mark : \u201D
@@ -105,7 +105,7 @@ class Word:
     bool
         true if it is a punctuation, false otherwise.
     """
-    def isPunctuation(surfaceForm: str) -> bool:
+    def isPunctuationSymbol(surfaceForm: str) -> bool:
         return surfaceForm == "." or surfaceForm == "..." or surfaceForm == "[" or surfaceForm == "]" or \
             surfaceForm == "\u2026" or surfaceForm == "%" or surfaceForm == "&" or surfaceForm == "=" or \
             surfaceForm == "\u0060\u0060" or surfaceForm == "\u0060" or surfaceForm == "''" or surfaceForm == "$" or \
