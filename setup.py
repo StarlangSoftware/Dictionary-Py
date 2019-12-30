@@ -8,5 +8,6 @@ setup(
     license='',
     author='olcaytaner',
     author_email='olcaytaner@isikun.edu.tr',
-    description='Simple Dictionary Processing', install_requires=['NlpToolkit-Math']
+    description='Simple Dictionary Processing',
+    install_requires=['NlpToolkit-Math']
 )
