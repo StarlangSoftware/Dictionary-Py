@@ -213,9 +213,9 @@ class TxtDictionary(Dictionary):
         String input.
     """
     def mergeDictionary(self, secondFileName : str, mergedFileName : str):
-        firstFile = open(self.filename, "r")
-        secondFile = open(secondFileName, "r")
-        outFile = open(mergedFileName)
+        firstFile = open(self.filename, "r", encoding="utf8")
+        secondFile = open(secondFileName, "r", encoding="utf8")
+        outFile = open(mergedFileName, "w", encoding="utf8")
         firstLines = firstFile.readlines()
         firstFile.close()
         secondLines = secondFile.readlines()
@@ -263,7 +263,7 @@ class TxtDictionary(Dictionary):
         File name input.
     """
     def loadFromText(self, fileName: str):
-        input = open(fileName, "r")
+        input = open(fileName, "r", encoding="utf8")
         lines = input.readlines()
         for line in lines:
             list = line.split()
@@ -284,7 +284,7 @@ class TxtDictionary(Dictionary):
         File name input.
     """
     def loadMisspelledWords(self, fileName: str):
-        input = open(fileName, "r")
+        input = open(fileName, "r", encoding="utf8")
         lines = input.readlines()
         for line in lines:
             list = line.split()
@@ -318,7 +318,7 @@ class TxtDictionary(Dictionary):
         String input.
     """
     def saveAsTxt(self, fileName: str):
-        output = open(fileName, "w")
+        output = open(fileName, "w", encoding="utf8")
         for word in self.words:
             print(word, file=output)
         output.close()
