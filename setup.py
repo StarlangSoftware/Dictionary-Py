@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='NlpToolkit-Dictionary',
-    version='1.0.10',
+    version='1.0.11',
     packages=['Language', 'Dictionary', 'Dictionary.Trie', 'Syllibification'],
     url='https://github.com/olcaytaner/Dictionary-Py',
     license='',

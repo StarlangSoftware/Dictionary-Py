@@ -32,7 +32,7 @@ class Dictionary:
         word = Word(name)
         middle = bisect_left(self.words, word)
         if self.words[middle] == word:
-            return word
+            return self.words[middle]
         return None
 
     """
