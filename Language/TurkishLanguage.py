@@ -29,7 +29,7 @@ class TurkishLanguage(Language):
     bool
         true if given character is a vowel.
     """
-
+    @staticmethod
     def isVowel(ch: str) -> bool:
         return ch in TurkishLanguage.VOWELS
 
@@ -46,7 +46,7 @@ class TurkishLanguage(Language):
     bool
         true if given character is a back vowel.
     """
-
+    @staticmethod
     def isBackVowel(ch: str) -> bool:
         return ch in TurkishLanguage.BACK_VOWELS
 
@@ -63,7 +63,7 @@ class TurkishLanguage(Language):
     bool
         true if given character is a front vowel.
     """
-
+    @staticmethod
     def isFrontVowel(ch: str) -> bool:
         return ch in TurkishLanguage.FRONT_VOWELS
 
@@ -81,7 +81,7 @@ class TurkishLanguage(Language):
     bool
         true if given character is a back rounded vowel.
     """
-
+    @staticmethod
     def isBackRoundedVowel(ch: str) -> bool:
         return ch in TurkishLanguage.BACK_ROUNDED_VOWELS
 
@@ -99,7 +99,7 @@ class TurkishLanguage(Language):
     bool
         true if given character is a front rounded vowel.
     """
-
+    @staticmethod
     def isFrontRoundedVowel(ch: str) -> bool:
         return ch in TurkishLanguage.FRONT_ROUNDED_VOWELS
 
@@ -117,7 +117,7 @@ class TurkishLanguage(Language):
     bool
         true if given character is a back unrounded vowel.
     """
-
+    @staticmethod
     def isBackUnroundedVowel(ch: str) -> bool:
         return ch in TurkishLanguage.BACK_UNROUNDED_VOWELS
 
@@ -135,7 +135,7 @@ class TurkishLanguage(Language):
     bool
         true if given character is a front unrounded vowel.
     """
-
+    @staticmethod
     def isFrontUnroundedVowel(ch: str) -> bool:
         return ch in TurkishLanguage.FRONT_UNROUNDED_VOWELS
 
@@ -152,7 +152,7 @@ class TurkishLanguage(Language):
     bool
         true if given character is a dropping consonant.
     """
-
+    @staticmethod
     def isConsonantDrop(ch: str) -> bool:
         return ch in TurkishLanguage.CONSONANT_DROPS
 
@@ -169,7 +169,7 @@ class TurkishLanguage(Language):
     bool
         true if given character is a consonant.
     """
-
+    @staticmethod
     def isConsonant(ch: str) -> bool:
         return ch in TurkishLanguage.CONSONANTS
 
@@ -186,6 +186,6 @@ class TurkishLanguage(Language):
     bool
         true if given character is a sert sessiz.
     """
-
+    @staticmethod
     def isSertSessiz(ch: str) -> bool:
         return ch in TurkishLanguage.SERT_SESSIZ

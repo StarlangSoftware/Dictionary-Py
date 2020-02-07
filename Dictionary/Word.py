@@ -14,6 +14,7 @@ class Word:
     name : str
         String input.
     """
+
     def __init__(self, name: str):
         self.name = name
 
@@ -28,7 +29,8 @@ class Word:
     str
         the name variable.
     """
-    def __str__(self)-> str:
+
+    def __str__(self) -> str:
         return self.name
 
     def __lt__(self, other):
@@ -45,6 +47,7 @@ class Word:
     int
         the length of name variable.
     """
+
     def charCount(self) -> int:
         return len(self.name)
 
@@ -56,6 +59,7 @@ class Word:
     str
         name variable.
     """
+
     def getName(self) -> str:
         return self.name
 
@@ -67,6 +71,7 @@ class Word:
     name : str
         String input.
     """
+
     def setName(self, name: str):
         self.name = name
 
@@ -84,11 +89,14 @@ class Word:
     bool
         true if the character at first index of surfaceForm is a capital letter, false otherwise.
     """
+
+    @staticmethod
     def isCapital(surfaceForm: str) -> bool:
         return surfaceForm[0] in TurkishLanguage.UPPERCASE_LETTERS
 
     """
-    The isPunctuationSymbol method takes a String surfaceForm as an input and returns true if it is a punctuation, false otherwise.
+    The isPunctuationSymbol method takes a String surfaceForm as an input and returns true if it is a punctuation, 
+    False otherwise.
     Grave accent : \u0060
     Left quotation mark : \u201C
     Right quotation mark : \u201D
@@ -105,16 +113,18 @@ class Word:
     bool
         true if it is a punctuation, false otherwise.
     """
+
+    @staticmethod
     def isPunctuationSymbol(surfaceForm: str) -> bool:
         return surfaceForm == "." or surfaceForm == "..." or surfaceForm == "[" or surfaceForm == "]" or \
-            surfaceForm == "\u2026" or surfaceForm == "%" or surfaceForm == "&" or surfaceForm == "=" or \
-            surfaceForm == "\u0060\u0060" or surfaceForm == "\u0060" or surfaceForm == "''" or surfaceForm == "$" or \
-            surfaceForm == "!" or surfaceForm == "?" or surfaceForm == "," or surfaceForm == ":" or \
-            surfaceForm == "--" or surfaceForm == ";" or surfaceForm == "(" or surfaceForm == ")" or \
-            surfaceForm == "'" or surfaceForm == "\"" or surfaceForm == "\u201C" or surfaceForm == "\u2018" or \
-            surfaceForm == "\u201D" or surfaceForm == "…" or surfaceForm == "\u25CF" or surfaceForm == "/" or \
-            surfaceForm == "-" or surfaceForm == "+" or surfaceForm == "-LRB-" or surfaceForm == "-RRB-" or \
-            surfaceForm == "-LCB-" or surfaceForm == "-RCB-" or surfaceForm == "-LSB-" or surfaceForm == "-RSB-"
+               surfaceForm == "\u2026" or surfaceForm == "%" or surfaceForm == "&" or surfaceForm == "=" or \
+               surfaceForm == "\u0060\u0060" or surfaceForm == "\u0060" or surfaceForm == "''" or surfaceForm == "$" or\
+               surfaceForm == "!" or surfaceForm == "?" or surfaceForm == "," or surfaceForm == ":" or \
+               surfaceForm == "--" or surfaceForm == ";" or surfaceForm == "(" or surfaceForm == ")" or \
+               surfaceForm == "'" or surfaceForm == "\"" or surfaceForm == "\u201C" or surfaceForm == "\u2018" or \
+               surfaceForm == "\u201D" or surfaceForm == "…" or surfaceForm == "\u25CF" or surfaceForm == "/" or \
+               surfaceForm == "-" or surfaceForm == "+" or surfaceForm == "-LRB-" or surfaceForm == "-RRB-" or \
+               surfaceForm == "-LCB-" or surfaceForm == "-RCB-" or surfaceForm == "-LSB-" or surfaceForm == "-RSB-"
 
     """
     The isHonorific method takes a String surfaceForm as an input and after converting it to lower case it returns true
@@ -130,13 +140,15 @@ class Word:
     bool
         true if it equals to "bay" or "bayan", false otherwise.
     """
+
+    @staticmethod
     def isHonorific(surfaceForm: str) -> bool:
         lowerCase = surfaceForm.lower()
         return lowerCase == "bay" or lowerCase == "bayan"
 
     """
-    The isOrganization method takes a String surfaceForm as an input and after converting it to lower case it returns true
-    if it equals to "corp", "inc.", or "co.", and false otherwise.
+    The isOrganization method takes a String surfaceForm as an input and after converting it to lower case it returns 
+    true if it equals to "corp", "inc.", or "co.", and false otherwise.
 
     PARAMETERS
     ----------
@@ -148,6 +160,8 @@ class Word:
     bool
         true if it equals to "corp", "inc.", or "co.", and false otherwise.
     """
+
+    @staticmethod
     def isOrganization(surfaceForm: str) -> bool:
         lowerCase = surfaceForm.lower()
         return lowerCase == "corp" or lowerCase == "inc." or lowerCase == "co."
@@ -167,9 +181,14 @@ class Word:
         true if it equals to one of the dolar, sterlin, paunt, ons, ruble, mark, frank, yan, sent, yen' or $, and 
         false otherwise.
     """
+
+    @staticmethod
     def isMoney(surfaceForm: str) -> bool:
         lowerCase = surfaceForm.lower()
-        return lowerCase.startswith("dolar") or lowerCase.startswith("sterlin") or lowerCase.startswith("paunt") or lowerCase.startswith("ons") or lowerCase.startswith("ruble") or lowerCase.startswith("mark") or lowerCase.startswith("frank") or lowerCase == "yen" or lowerCase.startswith("sent") or lowerCase.startswith("cent") or lowerCase.startswith("yen'") or ("$" in lowerCase)
+        return lowerCase.startswith("dolar") or lowerCase.startswith("sterlin") or lowerCase.startswith("paunt") or \
+               lowerCase.startswith("ons") or lowerCase.startswith("ruble") or lowerCase.startswith("mark") or \
+               lowerCase.startswith("frank") or lowerCase == "yen" or lowerCase.startswith("sent") or \
+               lowerCase.startswith("cent") or lowerCase.startswith("yen'") or ("$" in lowerCase)
 
     """
     The isPunctuation method without any argument, it checks name variable whether it is a punctuation or not and
@@ -180,10 +199,11 @@ class Word:
     bool
         true if name is a punctuation.
     """
+
     def isPunctuation(self) -> bool:
         return self.name == "," or self.name == "." or self.name == "!" or self.name == "?" or self.name == ":" or \
-                self.name == ";" or self.name == "\"" or self.name == "''" or self.name == "'" or self.name == "`" or \
-                self.name == "``" or self.name == "..." or self.name == "-" or self.name == "--"
+               self.name == ";" or self.name == "\"" or self.name == "''" or self.name == "'" or self.name == "`" or \
+               self.name == "``" or self.name == "..." or self.name == "-" or self.name == "--"
 
     """
     The isTime method takes a String surfaceForm as an input and after converting it to lower case it checks some cases.
@@ -202,14 +222,21 @@ class Word:
     bool
         true if it presents time, and false otherwise.
     """
-    def isTime(surfaceForm : str) -> bool:
+
+    @staticmethod
+    def isTime(surfaceForm: str) -> bool:
         lowerCase = surfaceForm.lower()
         if re.search("(\\d\\d|\\d):(\\d\\d|\\d):(\\d\\d|\\d)", lowerCase) is not None or \
                 re.search("(\\d\\d|\\d):(\\d\\d|\\d)", lowerCase) is not None:
             return True
-        if lowerCase.startswith("ocak") or lowerCase.startswith("şubat") or lowerCase.startswith("mart") or lowerCase.startswith("nisan") or lowerCase.startswith("mayıs") or lowerCase.startswith("haziran") or lowerCase.startswith("temmuz") or lowerCase.startswith("ağustos") or lowerCase.startswith("eylül") or lowerCase.startswith("ekim") or lowerCase.startswith("kasım") or lowerCase == "aralık":
+        if lowerCase.startswith("ocak") or lowerCase.startswith("şubat") or lowerCase.startswith("mart") or \
+                lowerCase.startswith("nisan") or lowerCase.startswith("mayıs") or lowerCase.startswith("haziran") \
+                or lowerCase.startswith("temmuz") or lowerCase.startswith("ağustos") or lowerCase.startswith("eylül") \
+                or lowerCase.startswith("ekim") or lowerCase.startswith("kasım") or lowerCase == "aralık":
             return True
-        if lowerCase == "pazar" or lowerCase == "salı" or lowerCase.startswith("çarşamba") or lowerCase.startswith("perşembe") or lowerCase == "cuma" or lowerCase.startswith("cumartesi") or lowerCase.startswith("pazartesi"):
+        if lowerCase == "pazar" or lowerCase == "salı" or lowerCase.startswith("çarşamba") or \
+                lowerCase.startswith("perşembe") or lowerCase == "cuma" or lowerCase.startswith("cumartesi") \
+                or lowerCase.startswith("pazartesi"):
             return True
         if "'" in lowerCase:
             lowerCase = lowerCase[0:lowerCase.find("'")]
@@ -232,6 +259,8 @@ class Word:
     list
         Word type list.
     """
+
+    @staticmethod
     def toWordArray(sourceArray: list) -> list:
         result = []
         for word in sourceArray:
@@ -247,6 +276,7 @@ class Word:
     list
         Word type list.
     """
+
     def toCharacters(self) -> list:
         characters = []
         for i in range(len(self.name)):

@@ -15,8 +15,9 @@ class Dictionary:
         self.filename = ""
 
     """
-    The getWord method takes a String name as an input and performs binary search within words {@link ArrayList} and assigns the result
-    to integer variable middle. If the middle is greater than 0, it returns the item at index middle of words {@link ArrayList}, null otherwise.
+    The getWord method takes a String name as an input and performs binary search within words list and assigns the 
+    result to integer variable middle. If the middle is greater than 0, it returns the item at index middle of words 
+    list, None otherwise.
 
     PARAMETERS
     ----------

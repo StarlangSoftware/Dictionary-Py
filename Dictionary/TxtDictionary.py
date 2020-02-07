@@ -36,7 +36,7 @@ class TxtDictionary(Dictionary):
     name : str
         String input.
     """
-    def addNumber(self, name : str):
+    def addNumber(self, name: str):
         self.addWithFlag(name, "IS_SAYI")
 
     """
@@ -47,7 +47,7 @@ class TxtDictionary(Dictionary):
     name : str
         String input.
     """
-    def addRealNumber(self, name : str):
+    def addRealNumber(self, name: str):
         self.addWithFlag(name, "IS_REELSAYI")
 
     """
@@ -69,7 +69,7 @@ class TxtDictionary(Dictionary):
     name : str
         String input.
     """
-    def addTime(self, name : str):
+    def addTime(self, name: str):
         self.addWithFlag(name, "IS_ZAMAN")
 
     """
@@ -85,7 +85,7 @@ class TxtDictionary(Dictionary):
     bool
         true if given name is in words list, false otherwise.
     """
-    def addProperNoun(self, name : str)-> bool:
+    def addProperNoun(self, name: str) -> bool:
         return self.addWithFlag(name, "IS_OA")
 
     """
@@ -101,7 +101,7 @@ class TxtDictionary(Dictionary):
     bool
         true if given name is in words list, false otherwise.
     """
-    def addNoun(self, name : str)-> bool:
+    def addNoun(self, name: str) -> bool:
         return self.addWithFlag(name, "CL_ISIM")
 
     """
@@ -117,7 +117,7 @@ class TxtDictionary(Dictionary):
     bool
         true if given name is in words list, false otherwise.
     """
-    def addVerb(self, name: str)-> bool:
+    def addVerb(self, name: str) -> bool:
         return self.addWithFlag(name, "CL_FIIL")
 
     """
@@ -133,7 +133,7 @@ class TxtDictionary(Dictionary):
     bool
         true if given name is in words list, false otherwise.
     """
-    def addAdjective(self, name: str)-> bool:
+    def addAdjective(self, name: str) -> bool:
         return self.addWithFlag(name, "IS_ADJ")
 
     """
@@ -149,7 +149,7 @@ class TxtDictionary(Dictionary):
     bool
         true if given name is in words list, false otherwise.
     """
-    def addAdverb(self, name : str)-> bool:
+    def addAdverb(self, name: str) -> bool:
         return self.addWithFlag(name, "IS_ADVERB")
 
     """
@@ -165,7 +165,7 @@ class TxtDictionary(Dictionary):
     bool
         true if given name is in words list, false otherwise.
     """
-    def addPronoun(self, name: str)-> bool:
+    def addPronoun(self, name: str) -> bool:
         return self.addWithFlag(name, "IS_ZM")
 
     """
@@ -187,7 +187,7 @@ class TxtDictionary(Dictionary):
     bool
         true if given name is in words list, false otherwise.
     """
-    def addWithFlag(self, name: str, flag: str)-> bool:
+    def addWithFlag(self, name: str, flag: str) -> bool:
         if self.getWord(name.lower()) is None:
             word = TxtWord(name.lower())
             word.addFlag(flag)
@@ -196,7 +196,7 @@ class TxtDictionary(Dictionary):
             return True
         else:
             word = self.getWord(name.lower())
-            if not word.containsFlag(flag):
+            if isinstance(word, TxtWord) and not word.containsFlag(flag):
                 word.addFlag(flag)
         return False
 
@@ -212,7 +212,7 @@ class TxtDictionary(Dictionary):
     mergedFileName : str
         String input.
     """
-    def mergeDictionary(self, secondFileName : str, mergedFileName : str):
+    def mergeDictionary(self, secondFileName: str, mergedFileName: str):
         firstFile = open(self.filename, "r", encoding="utf8")
         secondFile = open(secondFileName, "r", encoding="utf8")
         outFile = open(mergedFileName, "w", encoding="utf8")
@@ -263,14 +263,14 @@ class TxtDictionary(Dictionary):
         File name input.
     """
     def loadFromText(self, fileName: str):
-        input = open(fileName, "r", encoding="utf8")
-        lines = input.readlines()
+        inputFile = open(fileName, "r", encoding="utf8")
+        lines = inputFile.readlines()
         for line in lines:
-            list = line.split()
-            if len(list) > 0:
-                currentWord = TxtWord(list[0])
-                for i in range(1, len(list)):
-                    currentWord.addFlag(list[i])
+            wordList = line.split()
+            if len(wordList) > 0:
+                currentWord = TxtWord(wordList[0])
+                for i in range(1, len(wordList)):
+                    currentWord.addFlag(wordList[i])
                 self.words.append(currentWord)
         self.words.sort()
 
@@ -284,12 +284,12 @@ class TxtDictionary(Dictionary):
         File name input.
     """
     def loadMisspelledWords(self, fileName: str):
-        input = open(fileName, "r", encoding="utf8")
-        lines = input.readlines()
+        inputFile = open(fileName, "r", encoding="utf8")
+        lines = inputFile.readlines()
         for line in lines:
-            list = line.split()
-            if len(list) == 2:
-                self.__misspelledWords[list[0]] = list[1]
+            wordList = line.split()
+            if len(wordList) == 2:
+                self.__misspelledWords[wordList[0]] = wordList[1]
 
     """
     The getCorrectForm returns the correct form of a misspelled word.
@@ -358,9 +358,9 @@ class TxtDictionary(Dictionary):
 
     """
     The prepareTrie method is used to create a Trie with the given dictionary. First, it gets the word from dictionary,
-    then checks some exceptions like 'ben' which does not fit in the consonant softening rule and transforms into 'bana',
-    and later on it generates a root by removing the last char from the word however if the length of the word is greater
-    than 1, it also generates the root by removing the last two chars from the word.
+    then checks some exceptions like 'ben' which does not fit in the consonant softening rule and transforms into 
+    'bana', and later on it generates a root by removing the last char from the word however if the length of the word 
+    is greater than 1, it also generates the root by removing the last two chars from the word.
 
     Then, it gets the last char of the root and adds root and word to the result Trie. There are also special cases 
     such as;
@@ -387,52 +387,53 @@ class TxtDictionary(Dictionary):
         lastBefore = ' '
         for i in range(self.size()):
             word = self.getWordWithIndex(i)
-            root = word.getName()
-            length = len(root)
-            if root == "ben":
-                result.addWord("bana", word)
-            rootWithoutLast = root[0:length - 1]
-            if length > 1:
-                rootWithoutLastTwo = root[0:length - 2]
-            else:
-                rootWithoutLastTwo = ""
-            if length > 1:
-                lastBefore = root[length - 2]
-            last = root[length - 1]
-            result.addWord(root, word)
-            if word.lastIdropsDuringSuffixation() or word.lastIdropsDuringPassiveSuffixation():
-                if word.rootSoftenDuringSuffixation():
-                    self.addWordWhenRootSoften(result, last, rootWithoutLastTwo, word)
+            if isinstance(word, TxtWord):
+                root = word.getName()
+                length = len(root)
+                if root == "ben":
+                    result.addWord("bana", word)
+                rootWithoutLast = root[0:length - 1]
+                if length > 1:
+                    rootWithoutLastTwo = root[0:length - 2]
                 else:
-                    result.addWord(rootWithoutLastTwo + last, word)
-            if word.isPortmanteauEndingWithSI():
-                result.addWord(rootWithoutLastTwo, word)
-            if word.rootSoftenDuringSuffixation():
-                self.addWordWhenRootSoften(result, last, rootWithoutLast, word)
-            if word.isPortmanteau():
-                if word.isPortmanteauFacedVowelEllipsis():
-                    result.addWord(rootWithoutLastTwo + last + lastBefore, word)
-                else:
-                    if word.isPortmanteauFacedSoftening():
-                        if lastBefore == 'b':
-                            result.addWord(rootWithoutLastTwo + 'p', word)
-                        elif lastBefore == 'c':
-                            result.addWord(rootWithoutLastTwo + 'ç', word)
-                        elif lastBefore == 'd':
-                            result.addWord(rootWithoutLastTwo + 't', word)
-                        elif lastBefore == 'ğ':
-                            result.addWord(rootWithoutLastTwo + 'k', word)
-                        else:
-                            pass
+                    rootWithoutLastTwo = ""
+                if length > 1:
+                    lastBefore = root[length - 2]
+                last = root[length - 1]
+                result.addWord(root, word)
+                if word.lastIdropsDuringSuffixation() or word.lastIdropsDuringPassiveSuffixation():
+                    if word.rootSoftenDuringSuffixation():
+                        self.addWordWhenRootSoften(result, last, rootWithoutLastTwo, word)
                     else:
+                        result.addWord(rootWithoutLastTwo + last, word)
+                if word.isPortmanteauEndingWithSI():
+                    result.addWord(rootWithoutLastTwo, word)
+                if word.rootSoftenDuringSuffixation():
+                    self.addWordWhenRootSoften(result, last, rootWithoutLast, word)
+                if word.isPortmanteau():
+                    if word.isPortmanteauFacedVowelEllipsis():
+                        result.addWord(rootWithoutLastTwo + last + lastBefore, word)
+                    else:
+                        if word.isPortmanteauFacedSoftening():
+                            if lastBefore == 'b':
+                                result.addWord(rootWithoutLastTwo + 'p', word)
+                            elif lastBefore == 'c':
+                                result.addWord(rootWithoutLastTwo + 'ç', word)
+                            elif lastBefore == 'd':
+                                result.addWord(rootWithoutLastTwo + 't', word)
+                            elif lastBefore == 'ğ':
+                                result.addWord(rootWithoutLastTwo + 'k', word)
+                            else:
+                                pass
+                        else:
+                            result.addWord(rootWithoutLast, word)
+                if word.vowelEChangesToIDuringYSuffixation() or word.vowelAChangesToIDuringYSuffixation():
+                    if last == 'e':
                         result.addWord(rootWithoutLast, word)
-            if word.vowelEChangesToIDuringYSuffixation() or word.vowelAChangesToIDuringYSuffixation():
-                if last == 'e':
-                    result.addWord(rootWithoutLast, word)
-                elif last == 'a':
-                    result.addWord(rootWithoutLast, word)
-                else:
-                    pass
-            if word.endingKChangesIntoG():
-                result.addWord(rootWithoutLast + 'g', word)
+                    elif last == 'a':
+                        result.addWord(rootWithoutLast, word)
+                    else:
+                        pass
+                if word.endingKChangesIntoG():
+                    result.addWord(rootWithoutLast + 'g', word)
         return result

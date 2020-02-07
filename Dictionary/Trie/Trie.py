@@ -23,7 +23,7 @@ class Trie:
     root : Word
         Word input.
     """
-    def addWord(self, word: str, root : Word):
+    def addWord(self, word: str, root: Word):
         self.__rootNode.addWord(word, root)
 
     """
@@ -71,10 +71,10 @@ class Trie:
     TxtWord
         None if TrieNode is None, otherwise portmanteau word.
     """
-    def getCompundWordStartingWith(self, hash: str) -> TxtWord:
+    def getCompundWordStartingWith(self, _hash: str) -> TxtWord:
         current = self.__rootNode
-        for i in range(len(hash)):
-            current = current.getChild(hash[i])
+        for i in range(len(_hash)):
+            current = current.getChild(_hash[i])
             if current is None:
                 return None
         if current is not None:

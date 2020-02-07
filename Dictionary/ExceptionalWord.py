@@ -1,6 +1,7 @@
 from Dictionary.Word import Word
 from Dictionary.Pos import Pos
 
+
 class ExceptionalWord(Word):
 
     __root: str

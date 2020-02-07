@@ -17,7 +17,7 @@ class TxtWord(Word):
     flag : str
         String input.
     """
-    def __init__(self, name : str, flag=None):
+    def __init__(self, name: str, flag=None):
         super().__init__(name)
         self.__flags = []
         if flag is not None:
@@ -31,7 +31,7 @@ class TxtWord(Word):
     flag : str
         String input to add.
     """
-    def addFlag(self, flag : str):
+    def addFlag(self, flag: str):
         self.__flags.append(flag)
 
     """

@@ -3,7 +3,6 @@ from Syllibification.Syllable import Syllable
 
 
 class SyllableList:
-
     __syllables: list
 
     """
@@ -23,7 +22,8 @@ class SyllableList:
     word : str
         String input.
     """
-    def __init__(self, word : str):
+
+    def __init__(self, word: str):
         self.__syllables = []
         sbSyllable = ""
         i = 0
@@ -33,7 +33,7 @@ class SyllableList:
             isLastChar = (i == len(word) - 1)
             if isVowel:
                 sbSyllable += c
-                #If it is the last vowel.
+                # If it is the last vowel.
                 if i == len(word) - 2:
                     sbSyllable += word[i + 1]
                     i = i + 1
@@ -48,13 +48,13 @@ class SyllableList:
                         if len(self.__syllables) == 0:
                             break
                         lastPos = len(self.__syllables) - 1
-                        str = self.__syllables[lastPos].getText()
-                        str = str + tempSyl
+                        string = self.__syllables[lastPos].getText()
+                        string = string + tempSyl
                         if isLastChar:
-                            #If the last char is also a consonant, add it to latest syllable. Ex: 'park'.
-                            str = str + c
+                            # If the last char is also a consonant, add it to latest syllable. Ex: 'park'.
+                            string = string + c
                         # Update previous syllable.
-                        self.__syllables[lastPos] = Syllable(str)
+                        self.__syllables[lastPos] = Syllable(string)
                         sbSyllable = ""
                 sbSyllable += c
             i = i + 1
@@ -68,6 +68,7 @@ class SyllableList:
     list
         list syllables.
     """
+
     def getSyllables(self) -> list:
         syllables = []
         for syllable in self.__syllables:

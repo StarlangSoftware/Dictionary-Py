@@ -20,7 +20,7 @@ class VectorizedDictionary(Dictionary):
     word : VectorizedWord
         VectorizedWord input.
     """
-    def addWord(self, word : VectorizedWord):
+    def addWord(self, word: VectorizedWord):
         self.words.append(word)
 
     """
@@ -47,14 +47,14 @@ class VectorizedDictionary(Dictionary):
         if word is None:
             return None
         for currentWord in self.words:
-            if currentWord != word:
+            if currentWord != word and isinstance(word, VectorizedWord):
                 distance = word.getVector().dotProduct(currentWord.getVector())
                 if distance > maxDistance:
                     maxDistance = distance
                     result = currentWord
         return result
 
-    def makeComparator(self, comparedWord : VectorizedWord) :
+    def makeComparator(self, comparedWord: VectorizedWord) :
         def compare(wordA, wordB):
             v = comparedWord.getVector()
             vA = wordA.getVector()
@@ -87,7 +87,7 @@ class VectorizedDictionary(Dictionary):
     list
         list result.
     """
-    def mostSimilarKWords(self, name : str, k : int) -> list:
+    def mostSimilarKWords(self, name: str, k: int) -> list:
         resultWords = []
         word = self.getWord(name)
         if word is None:
@@ -113,7 +113,7 @@ class VectorizedDictionary(Dictionary):
     list
         list result which holds the k-means clustered words.
     """
-    def kMeansClustering(self, iteration : int, k : int) -> list:
+    def kMeansClustering(self, iteration: int, k: int) -> list:
         result = []
         means = []
         vectorSize = self.words[0].getVector().size()
@@ -122,7 +122,7 @@ class VectorizedDictionary(Dictionary):
             v = Vector()
             v.initAllSame(vectorSize, 0)
             means.append(v)
-        for i in range(self.words.size()):
+        for i in range(len(self.words)):
             result[i % k].append(self.words[i])
             means[i % k].add(self.words[i]).getVector()
         for i in range(k):
