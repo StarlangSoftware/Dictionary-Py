@@ -20,11 +20,12 @@ class TxtDictionary(Dictionary):
     """
     def __init__(self, fileName=None, misspelledFileName=None):
         super().__init__()
+        self.__misspelledWords = {}
         if fileName is None:
             fileName = "turkish_dictionary.txt"
+            self.loadMisspelledWords("turkish_misspellings.txt")
         self.filename = fileName
         self.loadFromText(self.filename)
-        self.__misspelledWords = {}
         if misspelledFileName is not None:
             self.loadMisspelledWords(misspelledFileName)
 
