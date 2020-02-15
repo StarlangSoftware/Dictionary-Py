@@ -370,3 +370,6 @@ Syllibification/__pycache__/SyllableList.cpython-37.pyc
 dist/NlpToolkit-Dictionary-1.0.3.tar.gz
 dist/NlpToolkit-Dictionary-1.0.4.tar.gz
 dist/NlpToolkit-Dictionary-1.0.5.tar.gz
+/NlpToolkit_Dictionary.egg-info/
+/lib/python3.7/site-packages/NlpToolkit_Math-1.0.6-py3.7.egg-info/
+/dist/

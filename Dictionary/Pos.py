@@ -1,8 +1,11 @@
 from enum import Enum, auto
-"""
-Parts of speech.
-"""
+
+
 class Pos(Enum):
+    """
+    Parts of speech.
+    """
+
     """
     Adjective.
     """

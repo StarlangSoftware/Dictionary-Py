@@ -6,41 +6,41 @@ from Dictionary.VectorizedWord import VectorizedWord
 
 class VectorizedDictionary(Dictionary):
 
-    """
-    A constructor of VectorizedDictionary class which calls its super class Dictionary.
-    """
     def __init__(self):
+        """
+        A constructor of VectorizedDictionary class which calls its super class Dictionary.
+        """
         super().__init__()
 
-    """
-    The addWord method takes a VectorizedWord as an input and adds it to the words list.
-
-    PARAMETERS
-    ----------
-    word : VectorizedWord
-        VectorizedWord input.
-    """
     def addWord(self, word: VectorizedWord):
+        """
+        The addWord method takes a VectorizedWord as an input and adds it to the words list.
+
+        PARAMETERS
+        ----------
+        word : VectorizedWord
+            VectorizedWord input.
+        """
         self.words.append(word)
 
-    """
-    The mostSimilarWord method takes a String name as an input, declares a maxDistance as -1 and creates a 
-    VectorizedWord word by getting the given name from words list. Then, it loops through the words list and if the 
-    current word is not equal to given input it calculates the distance between current word and given word by using 
-    dot product and updates the maximum distance. It then returns the result VectorizedWord which holds the most similar 
-    word to the given word.
+    def mostSimilarWord(self, name: str) -> VectorizedWord:
+        """
+        The mostSimilarWord method takes a String name as an input, declares a maxDistance as -1 and creates a
+        VectorizedWord word by getting the given name from words list. Then, it loops through the words list and if the
+        current word is not equal to given input it calculates the distance between current word and given word by using
+        dot product and updates the maximum distance. It then returns the result VectorizedWord which holds the most
+        similar word to the given word.
 
-    PARAMETERS
-    ----------
-    name : str
-        String input.
-        
-    RETURNS
-    -------
-    VectorizedWord
-        VectorizedWord type result which holds the most similar word to the given word.
-    """
-    def mostSimilarWord(self, name : str) -> VectorizedWord:
+        PARAMETERS
+        ----------
+        name : str
+            String input.
+
+        RETURNS
+        -------
+        VectorizedWord
+            VectorizedWord type result which holds the most similar word to the given word.
+        """
         maxDistance = -1
         result = None
         word = self.getWord(name)
@@ -69,25 +69,25 @@ class VectorizedDictionary(Dictionary):
                 return 0
         return compare
 
-    """
-    The mostSimilarKWords method takes a String name and an integer k as inputs, and creates an list resultWords
-    of type VectorizedWord and a VectorizedWord word by getting the given name from words list. Then, it loops through 
-    the words list and adds current word to the resultWords. It then sort resultWords list and if the size of the 
-    list is greater than given input k, it removes items from the ending. Then, it returns resultWords list.
-
-    PARAMETERS
-    ----------
-    name : str
-        String input.
-    k : int
-        Integer input.
-        
-    RETURNS
-    -------
-    list
-        list result.
-    """
     def mostSimilarKWords(self, name: str, k: int) -> list:
+        """
+        The mostSimilarKWords method takes a String name and an integer k as inputs, and creates an list resultWords
+        of type VectorizedWord and a VectorizedWord word by getting the given name from words list. Then, it loops
+        through the words list and adds current word to the resultWords. It then sort resultWords list and if the size
+        of the list is greater than given input k, it removes items from the ending. Then, it returns resultWords list.
+
+        PARAMETERS
+        ----------
+        name : str
+            String input.
+        k : int
+            Integer input.
+
+        RETURNS
+        -------
+        list
+            list result.
+        """
         resultWords = []
         word = self.getWord(name)
         if word is None:
@@ -97,23 +97,23 @@ class VectorizedDictionary(Dictionary):
         resultWords.sort(key=self.makeComparator(word))
         return resultWords[0: k]
 
-    """
-    The kMeansClustering method takes an integer iteration and k as inputs. K-means clustering aims to partition n 
-    observations into k clusters in which each observation belongs to the cluster with the nearest mean.
-
-    PARAMETERS
-    ----------
-    iteration : int 
-        Integer input.
-    k : int        
-        Integer input.
-        
-    RETURNS
-    -------
-    list
-        list result which holds the k-means clustered words.
-    """
     def kMeansClustering(self, iteration: int, k: int) -> list:
+        """
+        The kMeansClustering method takes an integer iteration and k as inputs. K-means clustering aims to partition n
+        observations into k clusters in which each observation belongs to the cluster with the nearest mean.
+
+        PARAMETERS
+        ----------
+        iteration : int
+            Integer input.
+        k : int
+            Integer input.
+
+        RETURNS
+        -------
+        list
+            list result which holds the k-means clustered words.
+        """
         result = []
         means = []
         vectorSize = self.words[0].getVector().size()

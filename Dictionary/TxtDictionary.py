@@ -8,187 +8,187 @@ class TxtDictionary(Dictionary):
 
     __misspelledWords: dict
 
-    """
-    Constructor of TxtDictionary class which takes a String filename as input. And calls its super class
-    Dictionary, assigns given filename input to the filename variable. Then, it calls loadFromText method with given
-    filename.
-
-    PARAMETERS
-    ----------
-    filename : str
-        String input.
-    """
     def __init__(self, fileName=None, misspelledFileName=None):
+        """
+        Constructor of TxtDictionary class which takes a String filename as input. And calls its super class
+        Dictionary, assigns given filename input to the filename variable. Then, it calls loadFromText method with given
+        filename.
+
+        PARAMETERS
+        ----------
+        fileName : str
+            String input.
+        """
         super().__init__()
         self.__misspelledWords = {}
         if fileName is None:
             fileName = "turkish_dictionary.txt"
-            self.loadMisspelledWords("turkish_misspellings.txt")
+            self.__loadMisspelledWords("turkish_misspellings.txt")
         self.filename = fileName
-        self.loadFromText(self.filename)
+        self.__loadFromText(self.filename)
         if misspelledFileName is not None:
-            self.loadMisspelledWords(misspelledFileName)
+            self.__loadMisspelledWords(misspelledFileName)
 
-    """
-    The addNumber method takes a String name and calls addWithFlag method with given name and IS_SAYI flag.
-
-    PARAMETERS
-    ----------
-    name : str
-        String input.
-    """
     def addNumber(self, name: str):
+        """
+        The addNumber method takes a String name and calls addWithFlag method with given name and IS_SAYI flag.
+
+        PARAMETERS
+        ----------
+        name : str
+            String input.
+        """
         self.addWithFlag(name, "IS_SAYI")
 
-    """
-    The addRealNumber method takes a String name and calls addWithFlag method with given name and IS_REELSAYI flag.
-
-    PARAMETERS
-    ----------
-    name : str
-        String input.
-    """
     def addRealNumber(self, name: str):
+        """
+        The addRealNumber method takes a String name and calls addWithFlag method with given name and IS_REELSAYI flag.
+
+        PARAMETERS
+        ----------
+        name : str
+            String input.
+        """
         self.addWithFlag(name, "IS_REELSAYI")
 
-    """
-    The addFraction method takes a String name and calls addWithFlag method with given name and IS_KESIR flag.
-
-    PARAMETERS
-    ----------
-    name : str
-        String input.
-    """
     def addFraction(self, name: str):
+        """
+        The addFraction method takes a String name and calls addWithFlag method with given name and IS_KESIR flag.
+
+        PARAMETERS
+        ----------
+        name : str
+            String input.
+        """
         self.addWithFlag(name, "IS_KESIR")
 
-    """
-    The addTime method takes a String name and calls addWithFlag method with given name and IS_ZAMAN flag.
-
-    PARAMETERS
-    ----------
-    name : str
-        String input.
-    """
     def addTime(self, name: str):
+        """
+        The addTime method takes a String name and calls addWithFlag method with given name and IS_ZAMAN flag.
+
+        PARAMETERS
+        ----------
+        name : str
+            String input.
+        """
         self.addWithFlag(name, "IS_ZAMAN")
 
-    """
-    The addProperNoun method takes a String name and calls addWithFlag method with given name and IS_OA flag.
-
-    PARAMETERS
-    ----------
-    name : str
-        String input.
-
-    RETURNS
-    -------
-    bool
-        true if given name is in words list, false otherwise.
-    """
     def addProperNoun(self, name: str) -> bool:
+        """
+        The addProperNoun method takes a String name and calls addWithFlag method with given name and IS_OA flag.
+
+        PARAMETERS
+        ----------
+        name : str
+            String input.
+
+        RETURNS
+        -------
+        bool
+            true if given name is in words list, false otherwise.
+        """
         return self.addWithFlag(name, "IS_OA")
 
-    """
-    The addNoun method takes a String name and calls addWithFlag method with given name and CL_ISIM flag.
-
-    PARAMETERS
-    ----------
-    name : str
-        String input.
-
-    RETURNS
-    -------
-    bool
-        true if given name is in words list, false otherwise.
-    """
     def addNoun(self, name: str) -> bool:
+        """
+        The addNoun method takes a String name and calls addWithFlag method with given name and CL_ISIM flag.
+
+        PARAMETERS
+        ----------
+        name : str
+            String input.
+
+        RETURNS
+        -------
+        bool
+            true if given name is in words list, false otherwise.
+        """
         return self.addWithFlag(name, "CL_ISIM")
 
-    """
-    The addVerb method takes a String name and calls addWithFlag method with given name and CL_FIIL flag.
-
-    PARAMETERS
-    ----------
-    name : str
-        String input.
-
-    RETURNS
-    -------
-    bool
-        true if given name is in words list, false otherwise.
-    """
     def addVerb(self, name: str) -> bool:
+        """
+        The addVerb method takes a String name and calls addWithFlag method with given name and CL_FIIL flag.
+
+        PARAMETERS
+        ----------
+        name : str
+            String input.
+
+        RETURNS
+        -------
+        bool
+            true if given name is in words list, false otherwise.
+        """
         return self.addWithFlag(name, "CL_FIIL")
 
-    """
-    The addAdjective method takes a String name and calls addWithFlag method with given name and IS_ADJ flag.
-
-    PARAMETERS
-    ----------
-    name : str
-        String input.
-
-    RETURNS
-    -------
-    bool
-        true if given name is in words list, false otherwise.
-    """
     def addAdjective(self, name: str) -> bool:
+        """
+        The addAdjective method takes a String name and calls addWithFlag method with given name and IS_ADJ flag.
+
+        PARAMETERS
+        ----------
+        name : str
+            String input.
+
+        RETURNS
+        -------
+        bool
+            true if given name is in words list, false otherwise.
+        """
         return self.addWithFlag(name, "IS_ADJ")
 
-    """
-    The addAdverb method takes a String name and calls addWithFlag method with given name and IS_ADVERB flag.
-
-    PARAMETERS
-    ----------
-    name : str
-        String input.
-
-    RETURNS
-    -------
-    bool
-        true if given name is in words list, false otherwise.
-    """
     def addAdverb(self, name: str) -> bool:
+        """
+        The addAdverb method takes a String name and calls addWithFlag method with given name and IS_ADVERB flag.
+
+        PARAMETERS
+        ----------
+        name : str
+            String input.
+
+        RETURNS
+        -------
+        bool
+            true if given name is in words list, false otherwise.
+        """
         return self.addWithFlag(name, "IS_ADVERB")
 
-    """
-    The addPronoun method takes a String name and calls addWithFlag method with given name and IS_ZM flag.
-
-    PARAMETERS
-    ----------
-    name : str
-        String input.
-
-    RETURNS
-    -------
-    bool
-        true if given name is in words list, false otherwise.
-    """
     def addPronoun(self, name: str) -> bool:
+        """
+        The addPronoun method takes a String name and calls addWithFlag method with given name and IS_ZM flag.
+
+        PARAMETERS
+        ----------
+        name : str
+            String input.
+
+        RETURNS
+        -------
+        bool
+            true if given name is in words list, false otherwise.
+        """
         return self.addWithFlag(name, "IS_ZM")
 
-    """
-    The addWithFlag method takes a String name and a flag as inputs. First it creates a TxtWord word, then if
-    given name is not in words list it creates new TxtWord with given name and assigns it to
-    the word and adds given flag to the word, it also add newly created word to the words list's index
-    found by performing a binary search and return true at the end. If given name is in words list,
-    it adds it the given flag to the word.
-
-    PARAMETERS
-    ----------
-    name : str
-        String input.
-    flag : str
-        String flag.
-        
-    RETURNS
-    -------
-    bool
-        true if given name is in words list, false otherwise.
-    """
     def addWithFlag(self, name: str, flag: str) -> bool:
+        """
+        The addWithFlag method takes a String name and a flag as inputs. First it creates a TxtWord word, then if
+        given name is not in words list it creates new TxtWord with given name and assigns it to
+        the word and adds given flag to the word, it also add newly created word to the words list's index
+        found by performing a binary search and return true at the end. If given name is in words list,
+        it adds it the given flag to the word.
+
+        PARAMETERS
+        ----------
+        name : str
+            String input.
+        flag : str
+            String flag.
+
+        RETURNS
+        -------
+        bool
+            true if given name is in words list, false otherwise.
+        """
         if self.getWord(name.lower()) is None:
             word = TxtWord(name.lower())
             word.addFlag(flag)
@@ -201,19 +201,19 @@ class TxtDictionary(Dictionary):
                 word.addFlag(flag)
         return False
 
-    """
-    The mergeDictionary method takes a String inputs; secondFileName and mergedFileName. It reads given files line by
-    line and splits them according to spaces and write each word to file whichever comes first lexicographically and
-    continue to read files till the end.
-
-    PARAMETERS
-    ----------
-    secondFileName : str
-        String input.
-    mergedFileName : str
-        String input.
-    """
     def mergeDictionary(self, secondFileName: str, mergedFileName: str):
+        """
+        The mergeDictionary method takes a String inputs; secondFileName and mergedFileName. It reads given files line
+        by line and splits them according to spaces and write each word to file whichever comes first lexicographically
+        and continue to read files till the end.
+
+        PARAMETERS
+        ----------
+        secondFileName : str
+            String input.
+        mergedFileName : str
+            String input.
+        """
         firstFile = open(self.filename, "r", encoding="utf8")
         secondFile = open(secondFileName, "r", encoding="utf8")
         outFile = open(mergedFileName, "w", encoding="utf8")
@@ -253,17 +253,17 @@ class TxtDictionary(Dictionary):
             j = j + 1
         outFile.close()
 
-    """
-    The loadFromText method takes a String filename as an input. It reads given file line by line and splits according 
-    to space and assigns each word to the String array. Then, adds these word with their flags to the words list.
-    At the end it sorts the words list.
+    def __loadFromText(self, fileName: str):
+        """
+        The loadFromText method takes a String filename as an input. It reads given file line by line and splits
+        according to space and assigns each word to the String array. Then, adds these word with their flags to the
+        words list. At the end it sorts the words list.
 
-    PARAMETERS
-    ----------
-    fileName : str
-        File name input.
-    """
-    def loadFromText(self, fileName: str):
+        PARAMETERS
+        ----------
+        fileName : str
+            File name input.
+        """
         inputFile = open(fileName, "r", encoding="utf8")
         lines = inputFile.readlines()
         for line in lines:
@@ -275,16 +275,16 @@ class TxtDictionary(Dictionary):
                 self.words.append(currentWord)
         self.words.sort()
 
-    """
-    The loadMisspellWords method takes a String filename as an input. It reads given file line by line and splits
-    according to space and assigns each word with its misspelled form to the the misspelledWords hashMap.
+    def __loadMisspelledWords(self, fileName: str):
+        """
+        The loadMisspellWords method takes a String filename as an input. It reads given file line by line and splits
+        according to space and assigns each word with its misspelled form to the the misspelledWords hashMap.
 
-    PARAMETERS
-    ----------
-    fileName : str
-        File name input.
-    """
-    def loadMisspelledWords(self, fileName: str):
+        PARAMETERS
+        ----------
+        fileName : str
+            File name input.
+        """
         inputFile = open(fileName, "r", encoding="utf8")
         lines = inputFile.readlines()
         for line in lines:
@@ -292,60 +292,60 @@ class TxtDictionary(Dictionary):
             if len(wordList) == 2:
                 self.__misspelledWords[wordList[0]] = wordList[1]
 
-    """
-    The getCorrectForm returns the correct form of a misspelled word.
-
-    PARAMETERS
-    ----------
-    misspelledWord : str
-        Misspelled form.
-        
-    RETURNS
-    -------
-    str
-        Correct form.
-    """
     def getCorrectForm(self, misspelledWord: str) -> str:
+        """
+        The getCorrectForm returns the correct form of a misspelled word.
+
+        PARAMETERS
+        ----------
+        misspelledWord : str
+            Misspelled form.
+
+        RETURNS
+        -------
+        str
+            Correct form.
+        """
         if misspelledWord in self.__misspelledWords:
             return self.__misspelledWords[misspelledWord]
         return ""
 
-    """
-    The saveAsTxt method takes a filename as an input and prints out the items of words list.
-
-    PARAMETERS
-    ----------
-    filename : str
-        String input.
-    """
     def saveAsTxt(self, fileName: str):
+        """
+        The saveAsTxt method takes a filename as an input and prints out the items of words list.
+
+        PARAMETERS
+        ----------
+        fileName : str
+            String input.
+        """
         output = open(fileName, "w", encoding="utf8")
         for word in self.words:
             print(word, file=output)
         output.close()
 
-    """
-    The addWordWhenRootSoften is used to add word to Trie whose last consonant will be soften.
-    For instance, in the case of Dative Case Suffix, the word is 'müzik' when '-e' is added to the word, the last
-    char is drooped and root became 'müzi' and by changing 'k' into 'ğ' the word transformed into 'müziğe' as in the
-    example of 'Herkes müziğe doğru geldi'.
+    def __addWordWhenRootSoften(self, trie: Trie, last: chr, root: str, word: TxtWord):
+        """
+        The addWordWhenRootSoften is used to add word to Trie whose last consonant will be soften.
+        For instance, in the case of Dative Case Suffix, the word is 'müzik' when '-e' is added to the word, the last
+        char is drooped and root became 'müzi' and by changing 'k' into 'ğ' the word transformed into 'müziğe' as in the
+        example of 'Herkes müziğe doğru geldi'.
 
-    In the case of accusative, possessive of third person and a derivative suffix, the word is 'kanat' when '-i' is
-    added to word, last char is dropped, root became 'kana' then 't' transformed into 'd' and added to Trie. The word is
-    changed into 'kanadı' as in the case of 'Kuşun kırık kanadı'.
+        In the case of accusative, possessive of third person and a derivative suffix, the word is 'kanat' when '-i' is
+        added to word, last char is dropped, root became 'kana' then 't' transformed into 'd' and added to Trie. The
+        word is changed into 'kanadı' as in the case of 'Kuşun kırık kanadı'.
 
-    PARAMETERS
-    ----------
-    trie : Trie
-        the name of the Trie to add the word.
-    last : chr
-        the last char of the word to be soften.
-    root : str
-        the substring of the word whose last one or two chars are omitted from the word to bo softed.
-    word : TxtWord
-        the original word.
-    """
-    def addWordWhenRootSoften(self, trie: Trie, last: chr, root : str, word : TxtWord):
+        PARAMETERS
+        ----------
+        trie : Trie
+            the name of the Trie to add the word.
+        last : chr
+            the last char of the word to be soften.
+        root : str
+            the substring of the word whose last one or two chars are omitted from the word to bo softed.
+        word : TxtWord
+            the original word.
+        """
         if last == 'p':
             trie.addWord(root + 'b', word)
         elif last == 'ç':
@@ -357,33 +357,34 @@ class TxtDictionary(Dictionary):
         else:
             pass
 
-    """
-    The prepareTrie method is used to create a Trie with the given dictionary. First, it gets the word from dictionary,
-    then checks some exceptions like 'ben' which does not fit in the consonant softening rule and transforms into 
-    'bana', and later on it generates a root by removing the last char from the word however if the length of the word 
-    is greater than 1, it also generates the root by removing the last two chars from the word.
-
-    Then, it gets the last char of the root and adds root and word to the result Trie. There are also special cases 
-    such as;
-    lastIdropsDuringSuffixation condition, if it is true then addWordWhenRootSoften method will be used rather than 
-    addWord.
-    Ex : metin + i = metni
-    isPortmanteauEndingWithSI condition, if it is true then addWord method with rootWithoutLastTwo will be used.
-    Ex : ademelması + lar = ademelmaları
-    isPortmanteau condition, if it is true then addWord method with rootWithoutLast will be used.
-    Ex : mısıryağı + lar = mısıryağları
-    vowelEChangesToIDuringYSuffixation condition, if it is then addWord method with rootWithoutLast will be used
-    depending on the last char whether it is 'e' or 'a'.
-    Ex : ye + iniz - yiyiniz
-    endingKChangesIntoG condition, if it is true then addWord method with rootWithoutLast will be used with added 'g'.
-    Ex : ahenk + i = ahengi
-
-    RETURNS
-    -------
-    Trie
-        the resulting Trie.
-    """
     def prepareTrie(self) -> Trie:
+        """
+        The prepareTrie method is used to create a Trie with the given dictionary. First, it gets the word from
+        dictionary, then checks some exceptions like 'ben' which does not fit in the consonant softening rule and
+        transforms into 'bana', and later on it generates a root by removing the last char from the word however if the
+        length of the word is greater than 1, it also generates the root by removing the last two chars from the word.
+
+        Then, it gets the last char of the root and adds root and word to the result Trie. There are also special cases
+        such as;
+        lastIdropsDuringSuffixation condition, if it is true then addWordWhenRootSoften method will be used rather than
+        addWord.
+        Ex : metin + i = metni
+        isPortmanteauEndingWithSI condition, if it is true then addWord method with rootWithoutLastTwo will be used.
+        Ex : ademelması + lar = ademelmaları
+        isPortmanteau condition, if it is true then addWord method with rootWithoutLast will be used.
+        Ex : mısıryağı + lar = mısıryağları
+        vowelEChangesToIDuringYSuffixation condition, if it is then addWord method with rootWithoutLast will be used
+        depending on the last char whether it is 'e' or 'a'.
+        Ex : ye + iniz - yiyiniz
+        endingKChangesIntoG condition, if it is true then addWord method with rootWithoutLast will be used with added
+        'g'.
+        Ex : ahenk + i = ahengi
+
+        RETURNS
+        -------
+        Trie
+            the resulting Trie.
+        """
         result = Trie()
         lastBefore = ' '
         for i in range(self.size()):
@@ -404,13 +405,13 @@ class TxtDictionary(Dictionary):
                 result.addWord(root, word)
                 if word.lastIdropsDuringSuffixation() or word.lastIdropsDuringPassiveSuffixation():
                     if word.rootSoftenDuringSuffixation():
-                        self.addWordWhenRootSoften(result, last, rootWithoutLastTwo, word)
+                        self.__addWordWhenRootSoften(result, last, rootWithoutLastTwo, word)
                     else:
                         result.addWord(rootWithoutLastTwo + last, word)
                 if word.isPortmanteauEndingWithSI():
                     result.addWord(rootWithoutLastTwo, word)
                 if word.rootSoftenDuringSuffixation():
-                    self.addWordWhenRootSoften(result, last, rootWithoutLast, word)
+                    self.__addWordWhenRootSoften(result, last, rootWithoutLast, word)
                 if word.isPortmanteau():
                     if word.isPortmanteauFacedVowelEllipsis():
                         result.addWord(rootWithoutLastTwo + last + lastBefore, word)
