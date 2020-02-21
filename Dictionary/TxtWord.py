@@ -813,7 +813,7 @@ class TxtWord(Word):
         bool
             true if flags list contains F_GIR.
         """
-        return "F_GIR" in self.__flags
+        return "F_GIR" not in self.__flags
 
     def takesSuffixDIRAsFactitive(self) -> bool:
         """
@@ -825,7 +825,7 @@ class TxtWord(Word):
         bool
             true if flags list contains F_DIR.
         """
-        return "F_DIR" in self.__flags
+        return "F_DIR" not in self.__flags
 
     def showsSuRegularities(self) -> bool:
         """
