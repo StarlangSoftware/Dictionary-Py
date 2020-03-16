@@ -68,36 +68,36 @@ Türkçe sözlüğü ve yazım yanlışları sözlüğünü yüklemek için
 	
 Alana özgü sözlüğü ve yazım yanlışı sözlüğünü yüklemek için
 
-	TxtDictionary(String fileName, WordComparator comparator, String misspelledFileName)
+	TxtDictionary(self, fileName=None, misspelledFileName=None)
 
 Belirli bir sözcüğün sözlükte olup olmadığı,
 
-	Word getWord(String name)
+	getWord(self, name: str) -> Word
 
 ## TxtWord
 
 Sözlükteki kelimelerin özellikleri TxtWord sınıfının, isim olup olmadıkları
 
-	boolean isNominal()
+	isNominal(self) -> bool
 
 sıfat olup olmadıkları,
 
-	boolean isAdjective()
+	isAdjective(self) -> bool
 
 bileşik isim olup olmadıkları
 
-	boolean isPortmanteau()
+	isPortmanteau(self) -> bool
 
 ünlü uyumuna uyup uymadıkları
 
-	notObeysVowelHarmonyDuringAgglutination
+	notObeysVowelHarmonyDuringAgglutination(self) -> bool
 
 ek aldıklarında yumuşayıp yumuşamadıkları
 
-	boolean rootSoftenDuringSuffixation()
+	rootSoftenDuringSuffixation(self) -> bool
 
 ## SyllableList
 
 Kelimeyi hecelerine ayırmak için de SyllableList sınıfı kullanılır.
 
-	SyllableList(String word)
+	SyllableList(self, word: str)
