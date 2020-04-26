@@ -4,7 +4,7 @@ This resource is a dictionary of Modern Turkish, comprised of the definitions of
 
 For Developers
 ============
-You can also see [Java](https://github.com/olcaytaner/Dictionary), [CPP](https://github.com/olcaytaner/Dictionary-CPP), or [C#](https://github.com/olcaytaner/Dictionary-CS) repository.
+You can also see [Java](https://github.com/olcaytaner/Dictionary), [C++](https://github.com/olcaytaner/Dictionary-CPP), or [C#](https://github.com/olcaytaner/Dictionary-CS) repository.
 
 ## Requirements
 
