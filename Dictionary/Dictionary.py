@@ -1,4 +1,3 @@
-from bisect import bisect_left
 from Dictionary.Word import Word
 
 
@@ -7,12 +6,13 @@ class Dictionary:
     words: list
     filename: str
 
-    def __init__(self):
+    def __init__(self, comparator=None):
         """
         An empty constructor of Dictionary class.
         """
         self.words = []
         self.filename = ""
+        self.comparator = comparator
 
     def getWord(self, name: str) -> Word:
         """
@@ -31,8 +31,8 @@ class Dictionary:
             the item at found index of words {@link ArrayList}, null if cannot be found.
         """
         word = Word(name)
-        middle = bisect_left(self.words, word)
-        if self.words[middle] == word:
+        middle = self.__getPosition(word)
+        if middle >= 0:
             return self.words[middle]
         return None
 
@@ -53,8 +53,8 @@ class Dictionary:
             found index of words list, -1 if cannot be found.
         """
         word = Word(name)
-        middle = bisect_left(self.words, word)
-        if self.words[middle] == word:
+        middle = self.__getPosition(word)
+        if middle >= 0:
             return middle
         return -1
 
@@ -109,9 +109,22 @@ class Dictionary:
         """
         maxLength = 0
         for word in self.words:
-            if len(word) > maxLength:
-                maxLength = len(word)
+            if len(word.getName()) > maxLength:
+                maxLength = len(word.getName())
         return maxLength
+
+    def __getPosition(self, word: Word) -> int:
+        lo = 0
+        hi = len(self.words) - 1
+        while lo <= hi:
+            mid = (lo + hi) // 2
+            if self.comparator(self.words[mid], word) < 0:
+                lo = mid + 1
+            elif self.comparator(self.words[mid], word) > 0:
+                hi = mid - 1
+            else:
+                return mid
+        return -lo
 
     def getWordStartingWith(self, _hash: str) -> int:
         """
@@ -130,8 +143,8 @@ class Dictionary:
             Found index of words list, -middle-1 if cannot be found.
         """
         word = Word(_hash)
-        middle = bisect_left(self.words, word)
-        if self.words[middle] == word:
-            return middle
+        middle = self.__getPosition(word)
+        if middle < 0:
+            return -middle
         else:
-            return -middle - 1
+            return middle

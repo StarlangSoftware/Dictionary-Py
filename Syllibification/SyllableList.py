@@ -46,7 +46,9 @@ class SyllableList:
                     # The previous character was also a consonant.
                     if not TurkishLanguage.isVowel(tempSyl[0]):
                         if len(self.__syllables) == 0:
-                            break
+                            sbSyllable += c
+                            i = i + 1
+                            continue
                         lastPos = len(self.__syllables) - 1
                         string = self.__syllables[lastPos].getText()
                         string = string + tempSyl

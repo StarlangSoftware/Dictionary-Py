@@ -215,8 +215,8 @@ class Word:
             true if it presents time, and false otherwise.
         """
         lowerCase = surfaceForm.lower()
-        if re.search("(\\d\\d|\\d):(\\d\\d|\\d):(\\d\\d|\\d)", lowerCase) is not None or \
-                re.search("(\\d\\d|\\d):(\\d\\d|\\d)", lowerCase) is not None:
+        if re.fullmatch("(\\d\\d|\\d):(\\d\\d|\\d):(\\d\\d|\\d)", lowerCase) is not None or \
+                re.fullmatch("(\\d\\d|\\d):(\\d\\d|\\d)", lowerCase) is not None:
             return True
         if lowerCase.startswith("ocak") or lowerCase.startswith("şubat") or lowerCase.startswith("mart") or \
                 lowerCase.startswith("nisan") or lowerCase.startswith("mayıs") or lowerCase.startswith("haziran") \
@@ -229,9 +229,12 @@ class Word:
             return True
         if "'" in lowerCase:
             lowerCase = lowerCase[0:lowerCase.find("'")]
-        time = int(lowerCase)
-        if 1900 < time < 2200:
-            return True
+        try:
+            time = int(lowerCase)
+            if 1900 < time < 2200:
+                return True
+        except ValueError:
+            return False
         return False
 
     @staticmethod

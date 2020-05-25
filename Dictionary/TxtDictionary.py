@@ -1,14 +1,17 @@
 from bisect import bisect_left
+from functools import cmp_to_key
+
 from Dictionary.Trie.Trie import Trie
 from Dictionary.Dictionary import Dictionary
 from Dictionary.TxtWord import TxtWord
+from Dictionary.Word import Word
 
 
 class TxtDictionary(Dictionary):
 
     __misspelledWords: dict
 
-    def __init__(self, fileName=None, misspelledFileName=None):
+    def __init__(self, fileName=None, misspelledFileName=None, comparator=None):
         """
         Constructor of TxtDictionary class which takes a String filename as input. And calls its super class
         Dictionary, assigns given filename input to the filename variable. Then, it calls loadFromText method with given
@@ -19,7 +22,10 @@ class TxtDictionary(Dictionary):
         fileName : str
             String input.
         """
-        super().__init__()
+        if comparator is None:
+            super().__init__(TxtDictionary.turkishLowerCaseComparator)
+        else:
+            super().__init__(comparator)
         self.__misspelledWords = {}
         if fileName is None:
             fileName = "turkish_dictionary.txt"
@@ -28,6 +34,56 @@ class TxtDictionary(Dictionary):
         self.__loadFromText(self.filename)
         if misspelledFileName is not None:
             self.__loadMisspelledWords(misspelledFileName)
+
+    @staticmethod
+    def turkishLowerCaseComparator(wordA: Word, wordB: Word):
+        LOWERCASE_LETTERS = "abcçdefgğhıijklmnoöprsştuüvyz"
+        for i in range(min(len(wordA.getName()), len(wordB.getName()))):
+            firstChar = wordA.getName()[i:i + 1]
+            secondChar = wordB.getName()[i:i + 1]
+            if firstChar != secondChar:
+                if firstChar in LOWERCASE_LETTERS and secondChar not in LOWERCASE_LETTERS:
+                    return -1
+                elif firstChar not in LOWERCASE_LETTERS and secondChar in LOWERCASE_LETTERS:
+                    return 1
+                elif firstChar in LOWERCASE_LETTERS and secondChar in LOWERCASE_LETTERS:
+                    first = LOWERCASE_LETTERS.index(firstChar)
+                    second = LOWERCASE_LETTERS.index(secondChar)
+                    if first < second:
+                        return -1
+                    elif first > second:
+                        return 1
+        if len(wordA.getName()) < len(wordB.getName()):
+            return -1
+        elif len(wordA.getName()) > len(wordB.getName()):
+            return 1
+        else:
+            return 0
+
+    @staticmethod
+    def turkishIgnoreCaseComparator(wordA: Word, wordB: Word):
+        IGNORE_CASE_LETTERS = "aAbBcCçÇdDeEfFgGğĞhHıIiİjJkKlLmMnNoOöÖpPrRsSşŞtTuUüÜvVyYzZ"
+        for i in range(min(len(wordA.getName()), len(wordB.getName()))):
+            firstChar = wordA.getName()[i:i + 1]
+            secondChar = wordB.getName()[i:i + 1]
+            if firstChar != secondChar:
+                if firstChar in IGNORE_CASE_LETTERS and secondChar not in IGNORE_CASE_LETTERS:
+                    return -1
+                elif firstChar not in IGNORE_CASE_LETTERS and secondChar in IGNORE_CASE_LETTERS:
+                    return 1
+                elif firstChar in IGNORE_CASE_LETTERS and secondChar in IGNORE_CASE_LETTERS:
+                    first = IGNORE_CASE_LETTERS.index(firstChar)
+                    second = IGNORE_CASE_LETTERS.index(secondChar)
+                    if first < second:
+                        return -1
+                    elif first > second:
+                        return 1
+        if len(wordA.getName()) < len(wordB.getName()):
+            return -1
+        elif len(wordA.getName()) > len(wordB.getName()):
+            return 1
+        else:
+            return 0
 
     def addNumber(self, name: str):
         """
@@ -273,7 +329,8 @@ class TxtDictionary(Dictionary):
                 for i in range(1, len(wordList)):
                     currentWord.addFlag(wordList[i])
                 self.words.append(currentWord)
-        self.words.sort()
+        inputFile.close()
+        self.words.sort(key=cmp_to_key(self.comparator))
 
     def __loadMisspelledWords(self, fileName: str):
         """
@@ -291,6 +348,7 @@ class TxtDictionary(Dictionary):
             wordList = line.split()
             if len(wordList) == 2:
                 self.__misspelledWords[wordList[0]] = wordList[1]
+        inputFile.close()
 
     def getCorrectForm(self, misspelledWord: str) -> str:
         """
