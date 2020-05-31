@@ -4,7 +4,7 @@ This resource is a dictionary of Modern Turkish, comprised of the definitions of
 
 For Developers
 ============
-You can also see [Java](https://github.com/olcaytaner/Dictionary), [C++](https://github.com/olcaytaner/Dictionary-CPP), or [C#](https://github.com/olcaytaner/Dictionary-CS) repository.
+You can also see [Java](https://github.com/starlangsoftware/Dictionary), [C++](https://github.com/starlangsoftware/Dictionary-CPP), or [C#](https://github.com/starlangsoftware/Dictionary-CS) repository.
 
 ## Requirements
 
@@ -32,7 +32,7 @@ Use Git for cloning the code to your local or below line for Ubuntu:
 
 A directory called Dictionary will be created. Or you can use below link for exploring the code:
 
-	git clone https://github.com/olcaytaner/Dictionary-Py.git
+	git clone https://github.com/starlangsoftware/Dictionary-Py.git
 
 ## Open project with Pycharm IDE
 
@@ -43,13 +43,6 @@ Steps for opening the cloned project:
 * Choose `DataStructure-PY` file
 * Select open as project option
 * Couple of seconds, dependencies will be downloaded. 
-
-
-## Compile
-
-**From IDE**
-
-After being done with the downloading and Maven indexing, select **Build Project** option from **Build** menu. After compilation process, user can run DataStructure.
 
 Detailed Description
 ============
