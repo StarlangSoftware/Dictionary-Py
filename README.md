@@ -1,7 +1,3 @@
-# Dictionary
-
-This resource is a dictionary of Modern Turkish, comprised of the definitions of over 50.000 individual entries. Each entry is matched with its corresponding synset (set of synonymous words and expressions) in the Turkish WordNet, KeNet.
-
 For Developers
 ============
 You can also see [Java](https://github.com/starlangsoftware/Dictionary), [C++](https://github.com/starlangsoftware/Dictionary-CPP), or [C#](https://github.com/starlangsoftware/Dictionary-CS) repository.
@@ -43,54 +39,3 @@ Steps for opening the cloned project:
 * Choose `DataStructure-PY` file
 * Select open as project option
 * Couple of seconds, dependencies will be downloaded. 
-
-Detailed Description
-============
-+ [TxtDictionary](#txtdictionary)
-+ [TxtWord](#txtword)
-+ [SyllableList](#syllablelist)
-
-## TxtDictionary
-
-Bir alana özgü veya Türkçe sözlüğü yüklemek için kullanılır. Ayrıca yanlış yazılmış
-kelimeler ve yanlış yazılmış kelimelerin doğru formları da yüklenebilir.
-
-Türkçe sözlüğü ve yazım yanlışları sözlüğünü yüklemek için
-
-	a = TxtDictionary()
-	
-Alana özgü sözlüğü ve yazım yanlışı sözlüğünü yüklemek için
-
-	TxtDictionary(self, fileName=None, misspelledFileName=None)
-
-Belirli bir sözcüğün sözlükte olup olmadığı,
-
-	getWord(self, name: str) -> Word
-
-## TxtWord
-
-Sözlükteki kelimelerin özellikleri TxtWord sınıfının, isim olup olmadıkları
-
-	isNominal(self) -> bool
-
-sıfat olup olmadıkları,
-
-	isAdjective(self) -> bool
-
-bileşik isim olup olmadıkları
-
-	isPortmanteau(self) -> bool
-
-ünlü uyumuna uyup uymadıkları
-
-	notObeysVowelHarmonyDuringAgglutination(self) -> bool
-
-ek aldıklarında yumuşayıp yumuşamadıkları
-
-	rootSoftenDuringSuffixation(self) -> bool
-
-## SyllableList
-
-Kelimeyi hecelerine ayırmak için de SyllableList sınıfı kullanılır.
-
-	SyllableList(self, word: str)
