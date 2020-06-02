@@ -120,7 +120,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isPortmanteau():
                 count = count + 1
-        self.assertEqual(1296, count)
+        self.assertEqual(1294, count)
 
     def test_IsDeterminer(self):
         count = 0
