@@ -232,7 +232,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.rootSoftenDuringSuffixation():
                 count = count + 1
-        self.assertEqual(5466 + 90 - 1, count)
+        self.assertEqual(5468 + 90 - 1, count)
 
     def test_RootSoftenAndNotSoftenDuringSuffixation(self):
         count = 0
@@ -256,7 +256,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.nounSoftenDuringSuffixation():
                 count = count + 1
-        self.assertEqual(5466, count)
+        self.assertEqual(5468, count)
 
     def test_EndingKChangesIntoG(self):
         count = 0
