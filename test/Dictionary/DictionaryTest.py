@@ -34,7 +34,7 @@ class DictionaryTest(unittest.TestCase):
     def test_Size(self):
         self.assertEqual(29, self.lowerCaseDictionary.size())
         self.assertEqual(58, self.mixedCaseDictionary.size())
-        self.assertEqual(58731, self.dictionary.size())
+        self.assertEqual(62112, self.dictionary.size())
 
     def test_GetWord(self):
         self.assertEqual("a", self.lowerCaseDictionary.getWordWithIndex(0).name)

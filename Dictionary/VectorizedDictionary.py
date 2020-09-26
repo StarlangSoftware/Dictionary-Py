@@ -54,7 +54,7 @@ class VectorizedDictionary(Dictionary):
                     result = currentWord
         return result
 
-    def makeComparator(self, comparedWord: VectorizedWord) :
+    def makeComparator(self, comparedWord: VectorizedWord):
         def compare(wordA, wordB):
             v = comparedWord.getVector()
             vA = wordA.getVector()

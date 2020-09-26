@@ -22,25 +22,25 @@ class TxtWordTest(unittest.TestCase):
         self.assertEqual(5, verbs["F2P1-NO-REF"])
         self.assertEqual(1, verbs["F3P1-NO-REF"])
         self.assertEqual(1, verbs["F4P1-NO-REF"])
-        self.assertEqual(17, verbs["F4PR-NO-REF"])
-        self.assertEqual(3, verbs["F4PL-NO-REF"])
-        self.assertEqual(74, verbs["F4PW-NO-REF"])
-        self.assertEqual(11, verbs["F5PL-NO-REF"])
-        self.assertEqual(121, verbs["F5PR-NO-REF"])
+        self.assertEqual(14, verbs["F4PR-NO-REF"])
+        self.assertEqual(2, verbs["F4PL-NO-REF"])
+        self.assertEqual(67, verbs["F4PW-NO-REF"])
+        self.assertEqual(10, verbs["F5PL-NO-REF"])
+        self.assertEqual(111, verbs["F5PR-NO-REF"])
         self.assertEqual(1, verbs["F5PW-NO-REF"])
         self.assertEqual(2, verbs["F1P1"])
-        self.assertEqual(12, verbs["F2P1"])
+        self.assertEqual(11, verbs["F2P1"])
         self.assertEqual(4, verbs["F3P1"])
         self.assertEqual(1, verbs["F4P1"])
         self.assertEqual(1, verbs["F5P1"])
         self.assertEqual(7, verbs["F6P1"])
         self.assertEqual(2, verbs["F2PL"])
-        self.assertEqual(51, verbs["F4PL"])
-        self.assertEqual(19, verbs["F5PL"])
-        self.assertEqual(185, verbs["F4PR"])
-        self.assertEqual(849, verbs["F5PR"])
-        self.assertEqual(1474, verbs["F4PW"])
-        self.assertEqual(14, verbs["F5PW"])
+        self.assertEqual(49, verbs["F4PL"])
+        self.assertEqual(18, verbs["F5PL"])
+        self.assertEqual(173, verbs["F4PR"])
+        self.assertEqual(808, verbs["F5PR"])
+        self.assertEqual(1396, verbs["F4PW"])
+        self.assertEqual(13, verbs["F5PW"])
 
     def test_IsNominal(self):
         count = 0
@@ -48,7 +48,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isNominal():
                 count = count + 1
-        self.assertEqual(29119, count)
+        self.assertEqual(30593, count)
 
     def test_IsPassive(self):
         count = 0
@@ -72,7 +72,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isInterjection():
                 count = count + 1
-        self.assertEqual(106, count)
+        self.assertEqual(104, count)
 
     def test_IsDuplicate(self):
         count = 0
@@ -80,7 +80,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isInterjection():
                 count = count + 1
-        self.assertEqual(106, count)
+        self.assertEqual(104, count)
 
     def test_IsAdjective(self):
         count = 0
@@ -88,7 +88,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isAdjective():
                 count = count + 1
-        self.assertEqual(8063, count)
+        self.assertEqual(9671, count)
 
     def test_IsPronoun(self):
         count = 0
@@ -96,7 +96,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isPronoun():
                 count = count + 1
-        self.assertEqual(49, count)
+        self.assertEqual(48, count)
 
     def test_IsQuestion(self):
         count = 0
@@ -112,7 +112,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isVerb():
                 count = count + 1
-        self.assertEqual(4859, count)
+        self.assertEqual(5041, count)
 
     def test_IsPortmanteau(self):
         count = 0
@@ -136,7 +136,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isConjunction():
                 count = count + 1
-        self.assertEqual(55, count)
+        self.assertEqual(48, count)
 
     def test_IsAdverb(self):
         count = 0
@@ -144,7 +144,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isAdverb():
                 count = count + 1
-        self.assertEqual(1804, count)
+        self.assertEqual(1845, count)
 
     def test_IsPostP(self):
         count = 0
@@ -152,7 +152,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isPostP():
                 count = count + 1
-        self.assertEqual(49, count)
+        self.assertEqual(47, count)
 
     def test_IsPortmanteauEndingWithSI(self):
         count = 0
@@ -192,7 +192,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isProperNoun():
                 count = count + 1
-        self.assertEqual(19062, count)
+        self.assertEqual(19011, count)
 
     def test_IsPlural(self):
         count = 0
@@ -216,7 +216,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.notObeysVowelHarmonyDuringAgglutination():
                 count = count + 1
-        self.assertEqual(316, count)
+        self.assertEqual(315, count)
 
     def test_ObeysAndNotObeysVowelHarmonyDuringAgglutination(self):
         count = 0
@@ -232,7 +232,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.rootSoftenDuringSuffixation():
                 count = count + 1
-        self.assertEqual(5468 + 90 - 1, count)
+        self.assertEqual(5529, count)
 
     def test_RootSoftenAndNotSoftenDuringSuffixation(self):
         count = 0
@@ -240,7 +240,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.rootSoftenAndNotSoftenDuringSuffixation():
                 count = count + 1
-        self.assertEqual(16, count)
+        self.assertEqual(14, count)
 
     def test_VerbSoftenDuringSuffixation(self):
         count = 0
@@ -248,7 +248,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.verbSoftenDuringSuffixation():
                 count = count + 1
-        self.assertEqual(90, count)
+        self.assertEqual(87, count)
 
     def test_NounSoftenDuringSuffixation(self):
         count = 0
@@ -256,7 +256,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.nounSoftenDuringSuffixation():
                 count = count + 1
-        self.assertEqual(5468, count)
+        self.assertEqual(5443, count)
 
     def test_EndingKChangesIntoG(self):
         count = 0
@@ -272,7 +272,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isExceptional():
                 count = count + 1
-        self.assertEqual(34, count)
+        self.assertEqual(31, count)
 
     def test_DuplicatesDuringSuffixation(self):
         count = 0
@@ -296,7 +296,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.lastIdropsDuringSuffixation():
                 count = count + 1
-        self.assertEqual(170, count)
+        self.assertEqual(167, count)
 
     def test_LastIDropsAndNotDropDuringSuffixation(self):
         count = 0
@@ -304,7 +304,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.lastIDropsAndNotDropDuringSuffixation():
                 count = count + 1
-        self.assertEqual(7, count)
+        self.assertEqual(4, count)
 
     def test_TakesRelativeSuffixKi(self):
         count = 0
@@ -312,7 +312,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.takesRelativeSuffixKi():
                 count = count + 1
-        self.assertEqual(20, count)
+        self.assertEqual(16, count)
 
     def test_TakesRelativeSuffixKu(self):
         count = 0
@@ -328,7 +328,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.lastIdropsDuringPassiveSuffixation():
                 count = count + 1
-        self.assertEqual(12, count)
+        self.assertEqual(11, count)
 
     def test_VowelAChangesToIDuringYSuffixation(self):
         count = 0
@@ -336,7 +336,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.vowelAChangesToIDuringYSuffixation():
                 count = count + 1
-        self.assertEqual(1363, count)
+        self.assertEqual(1299, count)
 
     def test_VowelEChangesToIDuringYSuffixation(self):
         count = 0
@@ -352,7 +352,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if not word.takesSuffixIRAsAorist():
                 count = count + 1
-        self.assertEqual(52, count)
+        self.assertEqual(51, count)
 
     def test_TakesSuffixDIRAsFactitive(self):
         count = 0
@@ -360,7 +360,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if not word.takesSuffixDIRAsFactitive():
                 count = count + 1
-        self.assertEqual(207, count)
+        self.assertEqual(197, count)
 
     def test_ShowsSuRegularities(self):
         count = 0
@@ -368,7 +368,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.showsSuRegularities():
                 count = count + 1
-        self.assertEqual(6, count)
+        self.assertEqual(5, count)
 
 
 if __name__ == '__main__':
