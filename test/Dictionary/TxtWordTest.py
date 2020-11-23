@@ -48,7 +48,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isNominal():
                 count = count + 1
-        self.assertEqual(30593, count)
+        self.assertEqual(30601, count)
 
     def test_IsPassive(self):
         count = 0
@@ -88,7 +88,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isAdjective():
                 count = count + 1
-        self.assertEqual(9671, count)
+        self.assertEqual(9679, count)
 
     def test_IsPronoun(self):
         count = 0
@@ -96,7 +96,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isPronoun():
                 count = count + 1
-        self.assertEqual(48, count)
+        self.assertEqual(49, count)
 
     def test_IsQuestion(self):
         count = 0
@@ -112,7 +112,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isVerb():
                 count = count + 1
-        self.assertEqual(5041, count)
+        self.assertEqual(5042, count)
 
     def test_IsPortmanteau(self):
         count = 0
@@ -136,7 +136,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isConjunction():
                 count = count + 1
-        self.assertEqual(48, count)
+        self.assertEqual(51, count)
 
     def test_IsAdverb(self):
         count = 0
@@ -144,7 +144,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isAdverb():
                 count = count + 1
-        self.assertEqual(1845, count)
+        self.assertEqual(1849, count)
 
     def test_IsPostP(self):
         count = 0
@@ -152,7 +152,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isPostP():
                 count = count + 1
-        self.assertEqual(47, count)
+        self.assertEqual(49, count)
 
     def test_IsPortmanteauEndingWithSI(self):
         count = 0
@@ -192,7 +192,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isProperNoun():
                 count = count + 1
-        self.assertEqual(19011, count)
+        self.assertEqual(19012, count)
 
     def test_IsPlural(self):
         count = 0
@@ -336,7 +336,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.vowelAChangesToIDuringYSuffixation():
                 count = count + 1
-        self.assertEqual(1299, count)
+        self.assertEqual(1300, count)
 
     def test_VowelEChangesToIDuringYSuffixation(self):
         count = 0
