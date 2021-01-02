@@ -4,10 +4,10 @@ setup(
     name='NlpToolkit-Dictionary',
     version='1.0.20',
     packages=['Language', 'Dictionary', 'Dictionary.Trie', 'Syllibification'],
-    url='https://github.com/olcaytaner/Dictionary-Py',
+    url='https://github.com/StarlangSoftware/Dictionary-Py',
     license='',
     author='olcaytaner',
-    author_email='olcaytaner@isikun.edu.tr',
+    author_email='olcay.yildiz@ozyegin.edu.tr',
     description='Simple Dictionary Processing',
     install_requires=['NlpToolkit-Math']
 )
