@@ -1,5 +1,6 @@
 For Developers
 ============
+
 You can also see [Java](https://github.com/starlangsoftware/Dictionary), [C++](https://github.com/starlangsoftware/Dictionary-CPP), [Swift](https://github.com/starlangsoftware/Dictionary-Swift), or [C#](https://github.com/starlangsoftware/Dictionary-CS) repository.
 
 ## Requirements
@@ -39,3 +40,54 @@ Steps for opening the cloned project:
 * Choose `DataStructure-PY` file
 * Select open as project option
 * Couple of seconds, dependencies will be downloaded. 
+
+Detailed Description
+============
+
++ [TxtDictionary](#txtdictionary)
++ [TxtWord](#txtword)
++ [SyllableList](#syllablelist)
+
+## TxtDictionary
+
+Dictionary is used in order to load Turkish dictionary or a domain specific dictionary. In addition, misspelled words and the true forms of the misspelled words can also be loaded.
+
+To load the Turkish dictionary and the misspelled words dictionary,
+
+	a = TxtDictionary()
+	
+To load the domain specific dictionary and the misspelled words dictionary,
+
+	TxtDictionary(self, fileName=None, misspelledFileName=None)
+
+And to see if the dictionary involves a specific word, getWord is used.
+
+	getWord(self, name: str) -> Word
+
+## TxtWord
+
+The word features: To see whether the TxtWord class of the dictionary is a noun or not,
+
+	isNominal(self) -> bool
+
+To see whether it is an adjective,
+
+	isAdjective(self) -> bool
+
+To see whether it is a portmanteau word,
+
+	isPortmanteau(self) -> bool
+
+To see whether it obeys vowel harmony,
+
+	notObeysVowelHarmonyDuringAgglutination(self) -> bool
+
+And, to see whether it softens when it get affixes, the following is used.
+
+	rootSoftenDuringSuffixation(self) -> bool
+
+## SyllableList
+
+To syllabify the word, SyllableList class is used.
+
+	SyllableList(self, word: str)
