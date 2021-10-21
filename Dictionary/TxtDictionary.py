@@ -452,6 +452,8 @@ class TxtDictionary(Dictionary):
                 length = len(root)
                 if root == "ben":
                     result.addWord("bana", word)
+                if root == "sen":
+                    result.addWord("sana", word)
                 rootWithoutLast = root[0:length - 1]
                 if length > 1:
                     rootWithoutLastTwo = root[0:length - 2]

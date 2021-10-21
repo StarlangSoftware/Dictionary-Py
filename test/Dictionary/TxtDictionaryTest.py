@@ -18,6 +18,7 @@ class TxtDictionaryTest(unittest.TestCase):
     def test_PrepareTrie(self):
         trie = self.dictionary.prepareTrie()
         self.assertTrue(Word("ben") in trie.getWordsWithPrefix("bana"))
+        self.assertTrue(Word("sen") in trie.getWordsWithPrefix("sana"))
         self.assertTrue(Word("metin") in trie.getWordsWithPrefix("metni"))
         self.assertTrue(Word("ağız") in trie.getWordsWithPrefix("ağzı"))
         self.assertTrue(Word("ayır") in trie.getWordsWithPrefix("ayrıldı"))
