@@ -78,9 +78,9 @@ class TxtWordTest(unittest.TestCase):
         count = 0
         for i in range(self.dictionary.size()):
             word = self.dictionary.getWordWithIndex(i)
-            if word.isInterjection():
+            if word.isDuplicate():
                 count = count + 1
-        self.assertEqual(106, count)
+        self.assertEqual(124, count)
 
     def test_IsAdjective(self):
         count = 0
