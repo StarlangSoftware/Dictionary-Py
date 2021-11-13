@@ -34,7 +34,7 @@ Each bare-form has a set of attributes. For instance, ‘abacı’ is a noun, th
 For Developers
 ============
 
-You can also see [Cython](https://github.com/starlangsoftware/Dictionary-Cy), [Java](https://github.com/starlangsoftware/Dictionary), [C++](https://github.com/starlangsoftware/Dictionary-CPP), [Swift](https://github.com/starlangsoftware/Dictionary-Swift), or [C#](https://github.com/starlangsoftware/Dictionary-CS) repository.
+You can also see [Cython](https://github.com/starlangsoftware/Dictionary-Cy), [Java](https://github.com/starlangsoftware/Dictionary), [C++](https://github.com/starlangsoftware/Dictionary-CPP), [Swift](https://github.com/starlangsoftware/Dictionary-Swift), [Js](https://github.com/starlangsoftware/Dictionary-Js), or [C#](https://github.com/starlangsoftware/Dictionary-CS) repository.
 
 ## Requirements
 
