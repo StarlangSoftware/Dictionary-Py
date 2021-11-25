@@ -25,7 +25,7 @@ class TrieTest(unittest.TestCase):
         self.simpleTrie.addWord("ören", Word("ören"))
         self.simpleTrie.addWord("örgü", Word("örgü"))
         self.complexTrie = Trie()
-        dictionary = TxtDictionary("../../../turkish_dictionary.txt", "../../../turkish_misspellings.txt")
+        dictionary = TxtDictionary("../../../Dictionary/data/turkish_dictionary.txt", "../../../turkish_misspellings.txt")
         for i in range(dictionary.size()):
             self.complexTrie.addWord(dictionary.getWordWithIndex(i).getName(), dictionary.getWordWithIndex(i))
 

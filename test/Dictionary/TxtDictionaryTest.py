@@ -9,7 +9,7 @@ class TxtDictionaryTest(unittest.TestCase):
     dictionary : TxtDictionary
 
     def setUp(self) -> None:
-        self.dictionary = TxtDictionary("../../turkish_dictionary.txt", "../../turkish_misspellings.txt")
+        self.dictionary = TxtDictionary()
 
     def test_GetCorrectForm(self):
         for i in range(self.dictionary.size()):

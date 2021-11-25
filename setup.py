@@ -6,8 +6,9 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='NlpToolkit-Dictionary',
-    version='1.0.22',
-    packages=['Language', 'Dictionary', 'Dictionary.Trie', 'Syllibification'],
+    version='1.0.23',
+    packages=['Language', 'Dictionary', 'Dictionary.data', 'Dictionary.Trie', 'Syllibification'],
+    package_data={'Dictionary.data': ['*.txt']},
     url='https://github.com/StarlangSoftware/Dictionary-Py',
     license='',
     author='olcaytaner',

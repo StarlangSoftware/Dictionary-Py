@@ -9,9 +9,9 @@ class DictionaryTest(unittest.TestCase):
     mixedCaseDictionary : TxtDictionary
 
     def setUp(self) -> None:
-        self.dictionary = TxtDictionary("../../turkish_dictionary.txt", "../../turkish_misspellings.txt")
+        self.dictionary = TxtDictionary()
         self.lowerCaseDictionary = TxtDictionary("../../lowercase.txt")
-        self.mixedCaseDictionary = TxtDictionary("../../mixedcase.txt", "../../turkish_misspellings.txt", TxtDictionary.turkishIgnoreCaseComparator)
+        self.mixedCaseDictionary = TxtDictionary("../../mixedcase.txt", "../../Dictionary/data/turkish_misspellings.txt", TxtDictionary.turkishIgnoreCaseComparator)
 
     def test_GetWordIndex(self):
         self.assertEqual(0, self.lowerCaseDictionary.getWordIndex("a"))

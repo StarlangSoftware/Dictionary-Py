@@ -1,6 +1,8 @@
 from bisect import bisect_left
 from functools import cmp_to_key
 
+import pkg_resources
+
 from Dictionary.Trie.Trie import Trie
 from Dictionary.Dictionary import Dictionary
 from Dictionary.TxtWord import TxtWord
@@ -28,8 +30,8 @@ class TxtDictionary(Dictionary):
             super().__init__(comparator)
         self.__misspelledWords = {}
         if fileName is None:
-            fileName = "turkish_dictionary.txt"
-            self.__loadMisspelledWords("turkish_misspellings.txt")
+            fileName = pkg_resources.resource_filename(__name__, 'data/turkish_dictionary.txt')
+            self.__loadMisspelledWords(pkg_resources.resource_filename(__name__, 'data/turkish_misspellings.txt'))
         self.filename = fileName
         self.__loadFromText(self.filename)
         if misspelledFileName is not None:

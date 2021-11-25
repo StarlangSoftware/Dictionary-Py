@@ -8,7 +8,7 @@ class TxtWordTest(unittest.TestCase):
     dictionary: TxtDictionary
 
     def setUp(self) -> None:
-        self.dictionary = TxtDictionary("../../turkish_dictionary.txt", "../../turkish_misspellings.txt")
+        self.dictionary = TxtDictionary("../../Dictionary/data/turkish_dictionary.txt", "../../turkish_misspellings.txt")
 
     def test_VerbType(self):
         verbs = {}
