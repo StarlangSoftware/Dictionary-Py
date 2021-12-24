@@ -167,7 +167,6 @@ class Dictionary:
         return maxLength
 
     def __getPosition(self, word: Word) -> int:
-        print('IM IN')
         lo = 0
         hi = len(self.words) - 1
         while lo <= hi:
