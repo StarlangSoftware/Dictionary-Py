@@ -23,7 +23,7 @@ class VectorizedDictionary(Dictionary):
         """
         self.words.append(word)
 
-    def mostSimilarWord(self, name: str) -> VectorizedWord:
+    def mostSimilarWord(self, word: VectorizedWord) -> VectorizedWord:
         """
         The mostSimilarWord method takes a String name as an input, declares a maxDistance as -1 and creates a
         VectorizedWord word by getting the given name from words list. Then, it loops through the words list and if the
@@ -43,9 +43,10 @@ class VectorizedDictionary(Dictionary):
         """
         maxDistance = -1
         result = None
-        word = self.getWord(name)
+        #word = self.getWord(name)
         if word is None:
             return None
+        
         for currentWord in self.words:
             if currentWord != word and isinstance(word, VectorizedWord):
                 distance = word.getVector().dotProduct(currentWord.getVector())
