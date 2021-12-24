@@ -12,7 +12,60 @@ class Dictionary:
         """
         self.words = []
         self.filename = ""
-        self.comparator = comparator
+        if comparator is None:
+            self.comparator = Dictionary.turkishLowerCaseComparator
+        else:
+            self.comparator = comparator
+
+    @staticmethod
+    def turkishLowerCaseComparator(wordA: Word, wordB: Word):
+        LOWERCASE_LETTERS = "abcçdefgğhıijklmnoöprsştuüvyz"
+        for i in range(min(len(wordA.getName()), len(wordB.getName()))):
+            firstChar = wordA.getName()[i:i + 1]
+            secondChar = wordB.getName()[i:i + 1]
+            if firstChar != secondChar:
+                if firstChar in LOWERCASE_LETTERS and secondChar not in LOWERCASE_LETTERS:
+                    return -1
+                elif firstChar not in LOWERCASE_LETTERS and secondChar in LOWERCASE_LETTERS:
+                    return 1
+                elif firstChar in LOWERCASE_LETTERS and secondChar in LOWERCASE_LETTERS:
+                    first = LOWERCASE_LETTERS.index(firstChar)
+                    second = LOWERCASE_LETTERS.index(secondChar)
+                    if first < second:
+                        return -1
+                    elif first > second:
+                        return 1
+        if len(wordA.getName()) < len(wordB.getName()):
+            return -1
+        elif len(wordA.getName()) > len(wordB.getName()):
+            return 1
+        else:
+            return 0
+
+    @staticmethod
+    def turkishIgnoreCaseComparator(wordA: Word, wordB: Word):
+        IGNORE_CASE_LETTERS = "aAbBcCçÇdDeEfFgGğĞhHıIiİjJkKlLmMnNoOöÖpPrRsSşŞtTuUüÜvVyYzZ"
+        for i in range(min(len(wordA.getName()), len(wordB.getName()))):
+            firstChar = wordA.getName()[i:i + 1]
+            secondChar = wordB.getName()[i:i + 1]
+            if firstChar != secondChar:
+                if firstChar in IGNORE_CASE_LETTERS and secondChar not in IGNORE_CASE_LETTERS:
+                    return -1
+                elif firstChar not in IGNORE_CASE_LETTERS and secondChar in IGNORE_CASE_LETTERS:
+                    return 1
+                elif firstChar in IGNORE_CASE_LETTERS and secondChar in IGNORE_CASE_LETTERS:
+                    first = IGNORE_CASE_LETTERS.index(firstChar)
+                    second = IGNORE_CASE_LETTERS.index(secondChar)
+                    if first < second:
+                        return -1
+                    elif first > second:
+                        return 1
+        if len(wordA.getName()) < len(wordB.getName()):
+            return -1
+        elif len(wordA.getName()) > len(wordB.getName()):
+            return 1
+        else:
+            return 0
 
     def getWord(self, name: str) -> Word:
         """

@@ -6,11 +6,11 @@ from Dictionary.VectorizedWord import VectorizedWord
 
 class VectorizedDictionary(Dictionary):
 
-    def __init__(self):
+    def __init__(self, comparator=None):
         """
         A constructor of VectorizedDictionary class which calls its super class Dictionary.
         """
-        super().__init__()
+        super().__init__(comparator)
 
     def addWord(self, word: VectorizedWord):
         """
