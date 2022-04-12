@@ -1,4 +1,4 @@
-Turkish Dictionary [<img src="https://github.com/StarlangSoftware/Dictionary/blob/master/video1.jpg" width="5%">](https://youtu.be/10iAqbfsA2A)
+Turkish Dictionary [<img src="https://github.com/StarlangSoftware/Dictionary/blob/master/video1.jpg" width="5%">](https://youtu.be/10iAqbfsA2A)[<img src="https://github.com/StarlangSoftware/Dictionary/blob/master/video2.jpg" width="5%">](https://youtu.be/C-_TZDkFwzQ)
 ============
 
 This resource is a dictionary of Modern Turkish, comprised of the definitions of over 50.000 individual entries. Each entry is matched with its corresponding synset (set of synonymous words and expressions) in the Turkish WordNet, KeNet.
