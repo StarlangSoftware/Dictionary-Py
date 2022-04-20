@@ -70,6 +70,79 @@ class Word:
         self.name = name
 
     @staticmethod
+    def beforeLastVowel(stem: str) -> str:
+        """
+        The beforeLastVowel method takes a str stem as an input. It loops through the given stem and returns
+        the second last vowel.
+
+        PARAMETERS
+        ----------
+        stem : str
+            String input.
+
+        RETURNS
+        -------
+        str
+            Vowel before the last vowel.
+        """
+        last = "0"
+        before = 1
+        for i in range(len(stem) - 1, -1, -1):
+            if TurkishLanguage.isVowel(stem[i]):
+                if before == 1:
+                    last = stem[i]
+                    before = before - 1
+                    continue
+                return stem[i]
+        return last
+
+    @staticmethod
+    def lastVowel(stem: str) -> str:
+        """
+        The lastVowel method takes a str stem as an input. It loops through the given stem and returns
+        the last vowel.
+
+        PARAMETERS
+        ----------
+        stem : str
+            String input.
+
+        RETURNS
+        -------
+        str
+            The last vowel.
+        """
+        for i in range(len(stem) - 1, - 1, -1):
+            if TurkishLanguage.isVowel(stem[i]):
+                return stem[i]
+        for i in range(len(stem) - 1, -1, -1):
+            if "0" <= stem[i] <= "9":
+                return stem[i]
+        return "0"
+
+    @staticmethod
+    def lastPhoneme(stem: str) -> str:
+        """
+        The lastPhoneme method takes a str stem as an input. It then returns the last phoneme of the given stem.
+
+        PARAMETERS
+        ----------
+        stem : str
+            String input.
+
+        RETURNS
+        -------
+        str
+            The last phoneme.
+        """
+        if len(stem) == 0:
+            return " "
+        if stem[len(stem) - 1] != "'":
+            return stem[len(stem) - 1]
+        else:
+            return stem[len(stem) - 2]
+
+    @staticmethod
     def isCapital(surfaceForm: str) -> bool:
         """
         The isCapital method takes a String surfaceForm as an input and returns true if the character at first index of
