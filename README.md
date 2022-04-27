@@ -1,4 +1,4 @@
-Turkish Dictionary [<img src="https://github.com/StarlangSoftware/Dictionary/blob/master/video1.jpg" width="5%">](https://youtu.be/10iAqbfsA2A)[<img src="https://github.com/StarlangSoftware/Dictionary/blob/master/video2.jpg" width="5%">](https://youtu.be/C-_TZDkFwzQ)
+Turkish Dictionary
 ============
 
 This resource is a dictionary of Modern Turkish, comprised of the definitions of over 50.000 individual entries. Each entry is matched with its corresponding synset (set of synonymous words and expressions) in the Turkish WordNet, KeNet.
@@ -30,6 +30,11 @@ Each bare-form has a set of attributes. For instance, ‘abacı’ is a noun, th
 |IS_SD, IS_SDD, F_SD|Final consonant gets devoiced during vowel-initial suffixation.|
 |F GUD, F_GUDO|The verb bare-form includes vowel reduction.|
 |F1P1, F1P1-NO-REF|A verb, and depending on this attribute, the verb can (or can not) take causative suffix, factitive suffix, passive suffix etc.|
+
+Video Lectures
+============
+
+[<img src="https://github.com/StarlangSoftware/Dictionary/blob/master/video1.jpg" width="50%">](https://youtu.be/10iAqbfsA2A)[<img src="https://github.com/StarlangSoftware/Dictionary/blob/master/video2.jpg" width="50%">](https://youtu.be/C-_TZDkFwzQ)
 
 For Developers
 ============
