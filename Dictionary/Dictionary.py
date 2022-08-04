@@ -177,7 +177,7 @@ class Dictionary:
                 hi = mid - 1
             else:
                 return mid
-        return -lo
+        return -(lo + 1)
 
     def getWordStartingWith(self, _hash: str) -> int:
         """
@@ -198,6 +198,6 @@ class Dictionary:
         word = Word(_hash)
         middle = self.__getPosition(word)
         if middle < 0:
-            return -middle
+            return -middle - 1
         else:
             return middle

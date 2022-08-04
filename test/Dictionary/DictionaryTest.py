@@ -55,6 +55,8 @@ class DictionaryTest(unittest.TestCase):
         self.assertEqual(21, self.dictionary.longestWordSize())
 
     def test_GetWordStartingWith(self):
+        self.assertEqual(0, self.lowerCaseDictionary.getWordStartingWith("a"))
+        self.assertEqual(1, self.lowerCaseDictionary.getWordStartingWith("b"))
         self.assertEqual(20, self.lowerCaseDictionary.getWordStartingWith("pırasa"))
         self.assertEqual(27, self.lowerCaseDictionary.getWordStartingWith("veli"))
         self.assertEqual(40, self.mixedCaseDictionary.getWordStartingWith("Pırasa"))
