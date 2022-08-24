@@ -12,7 +12,7 @@ class TxtDictionary(Dictionary):
 
     __misspelledWords: dict
 
-    def __init__(self, fileName=None, misspelledFileName=None, comparator=None):
+    def __init__(self, fileName=None, misspelledFileName=None, comparator=None, morphologicalLexicon=None):
         """
         Constructor of TxtDictionary class which takes a String filename as input. And calls its super class
         Dictionary, assigns given filename input to the filename variable. Then, it calls loadFromText method with given
@@ -30,6 +30,8 @@ class TxtDictionary(Dictionary):
             self.__loadMisspelledWords(pkg_resources.resource_filename(__name__, 'data/turkish_misspellings.txt'))
         self.filename = fileName
         self.__loadFromText(self.filename)
+        if fileName is None or morphologicalLexicon is None:
+            self.__loadMorphologicalLexicon(pkg_resources.resource_filename(__name__, 'data/turkish_morphological_lexicon.txt'))
         if misspelledFileName is not None:
             self.__loadMisspelledWords(misspelledFileName)
 
@@ -296,6 +298,26 @@ class TxtDictionary(Dictionary):
             wordList = line.split()
             if len(wordList) == 2:
                 self.__misspelledWords[wordList[0]] = wordList[1]
+        inputFile.close()
+
+    def __loadMorphologicalLexicon(self, fileName: str):
+        """
+        The loadMisspellWords method takes a String filename as an input. It reads given file line by line and splits
+        according to space and assigns each word with its misspelled form to the the misspelledWords hashMap.
+
+        PARAMETERS
+        ----------
+        fileName : str
+            File name input.
+        """
+        inputFile = open(fileName, "r", encoding="utf8")
+        lines = inputFile.readlines()
+        for line in lines:
+            wordList = line.split()
+            if len(wordList) == 2:
+                word = self.getWord(wordList[0])
+                if word is not None and isinstance(word, TxtWord):
+                    word.setMorphology(wordList[1])
         inputFile.close()
 
     def getCorrectForm(self, misspelledWord: str) -> str:

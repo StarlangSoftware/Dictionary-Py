@@ -15,6 +15,12 @@ class TxtDictionaryTest(unittest.TestCase):
         for i in range(self.dictionary.size()):
             self.assertTrue(len(self.dictionary.getCorrectForm(self.dictionary.getWordWithIndex(i).getName())) == 0)
 
+    def test_Morphology(self):
+        self.assertEqual("ab", self.dictionary.getWord("ab").getMorphology())
+        self.assertEqual("çarp+HcH+lHk", self.dictionary.getWord("çarpıcılık").getMorphology())
+        self.assertEqual("aciz+lAş+yAbil+mA", self.dictionary.getWord("âcizleşebilme").getMorphology())
+        self.assertEqual("ak+Hş+GAn+lAş+DHr+HCH+lHk", self.dictionary.getWord("akışkanlaştırıcılık").getMorphology())
+
     def test_PrepareTrie(self):
         trie = self.dictionary.prepareTrie()
         self.assertTrue(Word("ben") in trie.getWordsWithPrefix("bana"))

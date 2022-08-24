@@ -5,6 +5,7 @@ from Dictionary.Word import Word
 class TxtWord(Word):
 
     __flags: list
+    __morphology: str
 
     def __init__(self, name: str, flag=None):
         """
@@ -20,6 +21,7 @@ class TxtWord(Word):
         """
         super().__init__(name)
         self.__flags = []
+        self.__morphology = ""
         if flag is not None:
             self.addFlag(flag)
 
@@ -44,6 +46,12 @@ class TxtWord(Word):
             String input to remove.
         """
         self.__flags.remove(flag)
+
+    def getMorphology(self)-> str:
+        return self.__morphology
+
+    def setMorphology(self, morphology: str):
+        self.__morphology = morphology
 
     def verbType(self) -> str:
         """
