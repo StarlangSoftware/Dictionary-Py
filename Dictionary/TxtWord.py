@@ -333,17 +333,6 @@ class TxtWord(Word):
         """
         return "IS_HEADER" in self.__flags
 
-    def isHeader(self) -> bool:
-        """
-        The isHeader method returns true if flags list contains IS_HEADER.
-
-        RETURNS
-        -------
-        bool
-            true if flags list contains IS_HEADER.
-        """
-        return "IS_HEADER" in self.__flags
-
     def isAdjective(self) -> bool:
         """
         The isAdjective method returns true if flags list contains IS_ADJ.
