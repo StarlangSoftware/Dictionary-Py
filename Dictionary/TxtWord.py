@@ -300,6 +300,39 @@ class TxtWord(Word):
         """
         return "IS_DUP" in self.__flags
 
+    def isCode(self) -> bool:
+        """
+        The isCode method returns true if flags list contains IS_CODE.
+
+        RETURNS
+        -------
+        bool
+            true if flags list contains IS_CODE.
+        """
+        return "IS_CODE" in self.__flags
+
+    def isMetric(self) -> bool:
+        """
+        The isMetric method returns true if flags list contains IS_METRIC.
+
+        RETURNS
+        -------
+        bool
+            true if flags list contains IS_METRIC.
+        """
+        return "IS_METRIC" in self.__flags
+
+    def isHeader(self) -> bool:
+        """
+        The isHeader method returns true if flags list contains IS_HEADER.
+
+        RETURNS
+        -------
+        bool
+            true if flags list contains IS_HEADER.
+        """
+        return "IS_HEADER" in self.__flags
+
     def isHeader(self) -> bool:
         """
         The isHeader method returns true if flags list contains IS_HEADER.
