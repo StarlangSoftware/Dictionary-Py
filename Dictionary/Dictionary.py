@@ -21,16 +21,16 @@ class Dictionary:
     def turkishLowerCaseComparator(wordA: Word, wordB: Word):
         LOWERCASE_LETTERS = "abcçdefgğhıijklmnoöprsştuüvyz"
         for i in range(min(len(wordA.getName()), len(wordB.getName()))):
-            firstChar = wordA.getName()[i:i + 1]
-            secondChar = wordB.getName()[i:i + 1]
-            if firstChar != secondChar:
-                if firstChar in LOWERCASE_LETTERS and secondChar not in LOWERCASE_LETTERS:
+            first_char = wordA.getName()[i:i + 1]
+            second_char = wordB.getName()[i:i + 1]
+            if first_char != second_char:
+                if first_char in LOWERCASE_LETTERS and second_char not in LOWERCASE_LETTERS:
                     return -1
-                elif firstChar not in LOWERCASE_LETTERS and secondChar in LOWERCASE_LETTERS:
+                elif first_char not in LOWERCASE_LETTERS and second_char in LOWERCASE_LETTERS:
                     return 1
-                elif firstChar in LOWERCASE_LETTERS and secondChar in LOWERCASE_LETTERS:
-                    first = LOWERCASE_LETTERS.index(firstChar)
-                    second = LOWERCASE_LETTERS.index(secondChar)
+                elif first_char in LOWERCASE_LETTERS and second_char in LOWERCASE_LETTERS:
+                    first = LOWERCASE_LETTERS.index(first_char)
+                    second = LOWERCASE_LETTERS.index(second_char)
                     if first < second:
                         return -1
                     elif first > second:
@@ -46,16 +46,16 @@ class Dictionary:
     def turkishIgnoreCaseComparator(wordA: Word, wordB: Word):
         IGNORE_CASE_LETTERS = "aAbBcCçÇdDeEfFgGğĞhHıIiİjJkKlLmMnNoOöÖpPrRsSşŞtTuUüÜvVyYzZ"
         for i in range(min(len(wordA.getName()), len(wordB.getName()))):
-            firstChar = wordA.getName()[i:i + 1]
-            secondChar = wordB.getName()[i:i + 1]
-            if firstChar != secondChar:
-                if firstChar in IGNORE_CASE_LETTERS and secondChar not in IGNORE_CASE_LETTERS:
+            first_char = wordA.getName()[i:i + 1]
+            second_char = wordB.getName()[i:i + 1]
+            if first_char != second_char:
+                if first_char in IGNORE_CASE_LETTERS and second_char not in IGNORE_CASE_LETTERS:
                     return -1
-                elif firstChar not in IGNORE_CASE_LETTERS and secondChar in IGNORE_CASE_LETTERS:
+                elif first_char not in IGNORE_CASE_LETTERS and second_char in IGNORE_CASE_LETTERS:
                     return 1
-                elif firstChar in IGNORE_CASE_LETTERS and secondChar in IGNORE_CASE_LETTERS:
-                    first = IGNORE_CASE_LETTERS.index(firstChar)
-                    second = IGNORE_CASE_LETTERS.index(secondChar)
+                elif first_char in IGNORE_CASE_LETTERS and second_char in IGNORE_CASE_LETTERS:
+                    first = IGNORE_CASE_LETTERS.index(first_char)
+                    second = IGNORE_CASE_LETTERS.index(second_char)
                     if first < second:
                         return -1
                     elif first > second:
@@ -160,11 +160,11 @@ class Dictionary:
         int
             The item with the maximum word length.
         """
-        maxLength = 0
+        max_length = 0
         for word in self.words:
-            if len(word.getName()) > maxLength:
-                maxLength = len(word.getName())
-        return maxLength
+            if len(word.getName()) > max_length:
+                max_length = len(word.getName())
+        return max_length
 
     def __getPosition(self, word: Word) -> int:
         lo = 0
@@ -201,3 +201,6 @@ class Dictionary:
             return -middle - 1
         else:
             return middle
+
+    def __repr__(self):
+        return f"{self.words}"

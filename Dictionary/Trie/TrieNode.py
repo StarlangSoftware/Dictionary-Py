@@ -14,7 +14,10 @@ class TrieNode:
         self.__children = {}
         self.__words = set()
 
-    def addWord(self, word: str, root: Word, index=0):
+    def addWord(self,
+                word: str,
+                root: Word,
+                index=0):
         """
         The addWord method takes a String word, an index, and a Word root as inputs. First it creates a TrieNode child
         and it directly adds it to the set when the given index is equal to the length of given word.

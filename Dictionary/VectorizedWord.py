@@ -6,7 +6,9 @@ class VectorizedWord(Word):
 
     __vector: Vector
 
-    def __init__(self, name: str, vector: Vector):
+    def __init__(self,
+                 name: str,
+                 vector: Vector):
         """
         A constructor of VectorizedWord class which takes a String and a Vector as inputs and calls its
         super class Word with name and also initializes vector variable with given input.
@@ -31,3 +33,6 @@ class VectorizedWord(Word):
             the vector variable.
         """
         return self.__vector
+
+    def __repr__(self):
+        return f"{self.name} {self.__vector}"

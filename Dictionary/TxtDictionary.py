@@ -10,9 +10,13 @@ from Dictionary.TxtWord import TxtWord
 
 class TxtDictionary(Dictionary):
 
-    __misspelledWords: dict
+    __misspelled_words: dict
 
-    def __init__(self, fileName=None, misspelledFileName=None, comparator=None, morphologicalLexicon=None):
+    def __init__(self,
+                 fileName=None,
+                 misspelledFileName=None,
+                 comparator=None,
+                 morphologicalLexicon=None):
         """
         Constructor of TxtDictionary class which takes a String filename as input. And calls its super class
         Dictionary, assigns given filename input to the filename variable. Then, it calls loadFromText method with given
@@ -24,7 +28,7 @@ class TxtDictionary(Dictionary):
             String input.
         """
         super().__init__(comparator)
-        self.__misspelledWords = {}
+        self.__misspelled_words = {}
         if fileName is None:
             fileName = pkg_resources.resource_filename(__name__, 'data/turkish_dictionary.txt')
             self.__loadMisspelledWords(pkg_resources.resource_filename(__name__, 'data/turkish_misspellings.txt'))
@@ -175,7 +179,9 @@ class TxtDictionary(Dictionary):
         """
         return self.addWithFlag(name, "IS_ZM")
 
-    def addWithFlag(self, name: str, flag: str) -> bool:
+    def addWithFlag(self,
+                    name: str,
+                    flag: str) -> bool:
         """
         The addWithFlag method takes a String name and a flag as inputs. First it creates a TxtWord word, then if
         given name is not in words list it creates new TxtWord with given name and assigns it to
@@ -207,7 +213,9 @@ class TxtDictionary(Dictionary):
                 word.addFlag(flag)
         return False
 
-    def mergeDictionary(self, secondFileName: str, mergedFileName: str):
+    def mergeDictionary(self,
+                        secondFileName: str,
+                        mergedFileName: str):
         """
         The mergeDictionary method takes a String inputs; secondFileName and mergedFileName. It reads given files line
         by line and splits them according to spaces and write each word to file whichever comes first lexicographically
@@ -220,44 +228,44 @@ class TxtDictionary(Dictionary):
         mergedFileName : str
             String input.
         """
-        firstFile = open(self.filename, "r", encoding="utf8")
-        secondFile = open(secondFileName, "r", encoding="utf8")
-        outFile = open(mergedFileName, "w", encoding="utf8")
-        firstLines = firstFile.readlines()
-        firstFile.close()
-        secondLines = secondFile.readlines()
-        secondFile.close()
+        first_file = open(self.filename, "r", encoding="utf8")
+        second_file = open(secondFileName, "r", encoding="utf8")
+        out_file = open(mergedFileName, "w", encoding="utf8")
+        first_lines = first_file.readlines()
+        first_file.close()
+        second_lines = second_file.readlines()
+        second_file.close()
         i = 0
         j = 0
-        while i < len(firstLines) and j < len(secondLines):
-            st1 = firstLines[i]
-            st2 = secondLines[j]
+        while i < len(first_lines) and j < len(second_lines):
+            st1 = first_lines[i]
+            st2 = second_lines[j]
             word1 = st1.split()[0]
             word2 = st2.split()[0]
             if word1 < word2:
-                print(st1, file=outFile)
+                print(st1, file=out_file)
                 i = i + 1
             else:
                 if word1 > word2:
-                    print(st2, file=outFile)
+                    print(st2, file=out_file)
                     j = j + 1
                 else:
                     flag = st2.split()[1]
                     if flag in st1:
-                        print(st1, file=outFile)
+                        print(st1, file=out_file)
                     else:
-                        print(st1 + " " + flag, file=outFile)
+                        print(st1 + " " + flag, file=out_file)
                     i = i + 1
                     j = j + 1
-        while i < len(firstLines):
-            st1 = firstLines[j]
-            print(st1, file=outFile)
+        while i < len(first_lines):
+            st1 = first_lines[j]
+            print(st1, file=out_file)
             i = i + 1
-        while j < len(secondLines):
-            st2 = secondLines[j]
-            print(st2, file=outFile)
+        while j < len(second_lines):
+            st2 = second_lines[j]
+            print(st2, file=out_file)
             j = j + 1
-        outFile.close()
+        out_file.close()
 
     def __loadFromText(self, fileName: str):
         """
@@ -270,16 +278,16 @@ class TxtDictionary(Dictionary):
         fileName : str
             File name input.
         """
-        inputFile = open(fileName, "r", encoding="utf8")
-        lines = inputFile.readlines()
+        input_file = open(fileName, "r", encoding="utf8")
+        lines = input_file.readlines()
         for line in lines:
-            wordList = line.split()
-            if len(wordList) > 0:
-                currentWord = TxtWord(wordList[0])
-                for i in range(1, len(wordList)):
-                    currentWord.addFlag(wordList[i])
-                self.words.append(currentWord)
-        inputFile.close()
+            word_list = line.split()
+            if len(word_list) > 0:
+                current_word = TxtWord(word_list[0])
+                for i in range(1, len(word_list)):
+                    current_word.addFlag(word_list[i])
+                self.words.append(current_word)
+        input_file.close()
         self.words.sort(key=cmp_to_key(self.comparator))
 
     def __loadMisspelledWords(self, fileName: str):
@@ -292,13 +300,13 @@ class TxtDictionary(Dictionary):
         fileName : str
             File name input.
         """
-        inputFile = open(fileName, "r", encoding="utf8")
-        lines = inputFile.readlines()
+        input_file = open(fileName, "r", encoding="utf8")
+        lines = input_file.readlines()
         for line in lines:
-            wordList = line.split()
-            if len(wordList) == 2:
-                self.__misspelledWords[wordList[0]] = wordList[1]
-        inputFile.close()
+            word_list = line.split()
+            if len(word_list) == 2:
+                self.__misspelled_words[word_list[0]] = word_list[1]
+        input_file.close()
 
     def __loadMorphologicalLexicon(self, fileName: str):
         """
@@ -310,15 +318,15 @@ class TxtDictionary(Dictionary):
         fileName : str
             File name input.
         """
-        inputFile = open(fileName, "r", encoding="utf8")
-        lines = inputFile.readlines()
+        input_file = open(fileName, "r", encoding="utf8")
+        lines = input_file.readlines()
         for line in lines:
-            wordList = line.split()
-            if len(wordList) == 2:
-                word = self.getWord(wordList[0])
+            word_list = line.split()
+            if len(word_list) == 2:
+                word = self.getWord(word_list[0])
                 if word is not None and isinstance(word, TxtWord):
-                    word.setMorphology(wordList[1])
-        inputFile.close()
+                    word.setMorphology(word_list[1])
+        input_file.close()
 
     def getCorrectForm(self, misspelledWord: str) -> str:
         """
@@ -334,8 +342,8 @@ class TxtDictionary(Dictionary):
         str
             Correct form.
         """
-        if misspelledWord in self.__misspelledWords:
-            return self.__misspelledWords[misspelledWord]
+        if misspelledWord in self.__misspelled_words:
+            return self.__misspelled_words[misspelledWord]
         return ""
 
     def saveAsTxt(self, fileName: str):
@@ -414,7 +422,7 @@ class TxtDictionary(Dictionary):
             the resulting Trie.
         """
         result = Trie()
-        lastBefore = ' '
+        last_before = ' '
         for i in range(self.size()):
             word = self.getWordWithIndex(i)
             if isinstance(word, TxtWord):
@@ -424,48 +432,51 @@ class TxtDictionary(Dictionary):
                     result.addWord("bana", word)
                 if root == "sen":
                     result.addWord("sana", word)
-                rootWithoutLast = root[0:length - 1]
+                root_without_last = root[0:length - 1]
                 if length > 1:
-                    rootWithoutLastTwo = root[0:length - 2]
+                    root_without_last_two = root[0:length - 2]
                 else:
-                    rootWithoutLastTwo = ""
+                    root_without_last_two = ""
                 if length > 1:
-                    lastBefore = root[length - 2]
+                    last_before = root[length - 2]
                 last = root[length - 1]
                 result.addWord(root, word)
                 if word.lastIdropsDuringSuffixation() or word.lastIdropsDuringPassiveSuffixation():
                     if word.rootSoftenDuringSuffixation():
-                        self.__addWordWhenRootSoften(result, last, rootWithoutLastTwo, word)
+                        self.__addWordWhenRootSoften(result, last, root_without_last_two, word)
                     else:
-                        result.addWord(rootWithoutLastTwo + last, word)
+                        result.addWord(root_without_last_two + last, word)
                 if word.isPortmanteauEndingWithSI():
-                    result.addWord(rootWithoutLastTwo, word)
+                    result.addWord(root_without_last_two, word)
                 if word.rootSoftenDuringSuffixation():
-                    self.__addWordWhenRootSoften(result, last, rootWithoutLast, word)
+                    self.__addWordWhenRootSoften(result, last, root_without_last, word)
                 if word.isPortmanteau():
                     if word.isPortmanteauFacedVowelEllipsis():
-                        result.addWord(rootWithoutLastTwo + last + lastBefore, word)
+                        result.addWord(root_without_last_two + last + last_before, word)
                     else:
                         if word.isPortmanteauFacedSoftening():
-                            if lastBefore == 'b':
-                                result.addWord(rootWithoutLastTwo + 'p', word)
-                            elif lastBefore == 'c':
-                                result.addWord(rootWithoutLastTwo + 'ç', word)
-                            elif lastBefore == 'd':
-                                result.addWord(rootWithoutLastTwo + 't', word)
-                            elif lastBefore == 'ğ':
-                                result.addWord(rootWithoutLastTwo + 'k', word)
+                            if last_before == 'b':
+                                result.addWord(root_without_last_two + 'p', word)
+                            elif last_before == 'c':
+                                result.addWord(root_without_last_two + 'ç', word)
+                            elif last_before == 'd':
+                                result.addWord(root_without_last_two + 't', word)
+                            elif last_before == 'ğ':
+                                result.addWord(root_without_last_two + 'k', word)
                             else:
                                 pass
                         else:
-                            result.addWord(rootWithoutLast, word)
+                            result.addWord(root_without_last, word)
                 if word.vowelEChangesToIDuringYSuffixation() or word.vowelAChangesToIDuringYSuffixation():
                     if last == 'e':
-                        result.addWord(rootWithoutLast, word)
+                        result.addWord(root_without_last, word)
                     elif last == 'a':
-                        result.addWord(rootWithoutLast, word)
+                        result.addWord(root_without_last, word)
                     else:
                         pass
                 if word.endingKChangesIntoG():
-                    result.addWord(rootWithoutLast + 'g', word)
+                    result.addWord(root_without_last + 'g', word)
         return result
+
+    def __repr__(self):
+        return f"{self.words} {self.__misspelled_words}"

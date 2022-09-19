@@ -5,15 +5,17 @@ from Dictionary.TxtWord import TxtWord
 
 class Trie:
 
-    __rootNode: TrieNode
+    __root_node: TrieNode
 
     def __init__(self):
         """
         A constructor of Trie class which creates a new TrieNode as rootNode.
         """
-        self.__rootNode = TrieNode()
+        self.__root_node = TrieNode()
 
-    def addWord(self, word: str, root: Word):
+    def addWord(self,
+                word: str,
+                root: Word):
         """
         The addWord method which takes a String word and a Word root as inputs and adds given word and root to the
         rootNode.
@@ -25,7 +27,7 @@ class Trie:
         root : Word
             Word input.
         """
-        self.__rootNode.addWord(word, root)
+        self.__root_node.addWord(word, root)
 
     def getWordsWithPrefix(self, surfaceForm: str) -> set:
         """
@@ -44,7 +46,7 @@ class Trie:
         set
             words set.
         """
-        current = self.__rootNode
+        current = self.__root_node
         words = set()
         for i in range(len(surfaceForm)):
             current = current.getChild(surfaceForm[i])
@@ -74,7 +76,7 @@ class Trie:
         TxtWord
             None if TrieNode is None, otherwise portmanteau word.
         """
-        current = self.__rootNode
+        current = self.__root_node
         for i in range(len(_hash)):
             current = current.getChild(_hash[i])
             if current is None:

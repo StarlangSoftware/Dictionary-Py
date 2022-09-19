@@ -6,7 +6,7 @@ from Dictionary.Word import Word
 
 class TxtDictionaryTest(unittest.TestCase):
 
-    dictionary : TxtDictionary
+    dictionary: TxtDictionary
 
     def setUp(self) -> None:
         self.dictionary = TxtDictionary()

@@ -29,9 +29,9 @@ class SyllableList:
         i = 0
         while i < len(word):
             c = word[i]
-            isVowel = TurkishLanguage.isVowel(c)
-            isLastChar = (i == len(word) - 1)
-            if isVowel:
+            is_vowel = TurkishLanguage.isVowel(c)
+            is_last_char = (i == len(word) - 1)
+            if is_vowel:
                 sbSyllable += c
                 # If it is the last vowel.
                 if i == len(word) - 2:
@@ -41,22 +41,22 @@ class SyllableList:
                 sbSyllable = ""
             else:
                 # A syllable should not start with two consonants.
-                tempSyl = sbSyllable
-                if len(tempSyl) == 1:
+                temp_syllable = sbSyllable
+                if len(temp_syllable) == 1:
                     # The previous character was also a consonant.
-                    if not TurkishLanguage.isVowel(tempSyl[0]):
+                    if not TurkishLanguage.isVowel(temp_syllable[0]):
                         if len(self.__syllables) == 0:
                             sbSyllable += c
                             i = i + 1
                             continue
-                        lastPos = len(self.__syllables) - 1
-                        string = self.__syllables[lastPos].getText()
-                        string = string + tempSyl
-                        if isLastChar:
+                        last_pos = len(self.__syllables) - 1
+                        string = self.__syllables[last_pos].getText()
+                        string = string + temp_syllable
+                        if is_last_char:
                             # If the last char is also a consonant, add it to latest syllable. Ex: 'park'.
                             string = string + c
                         # Update previous syllable.
-                        self.__syllables[lastPos] = Syllable(string)
+                        self.__syllables[last_pos] = Syllable(string)
                         sbSyllable = ""
                 sbSyllable += c
             i = i + 1
@@ -75,3 +75,6 @@ class SyllableList:
         for syllable in self.__syllables:
             syllables.append(syllable.getText())
         return syllables
+
+    def __repr__(self):
+        return f"{self.__syllables}"

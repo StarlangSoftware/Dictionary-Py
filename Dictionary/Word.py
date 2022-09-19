@@ -207,8 +207,8 @@ class Word:
         bool
             true if it equals to "bay" or "bayan", false otherwise.
         """
-        lowerCase = surfaceForm.lower()
-        return lowerCase == "bay" or lowerCase == "bayan"
+        lower_case = surfaceForm.lower()
+        return lower_case == "bay" or lower_case == "bayan"
 
     @staticmethod
     def isOrganization(surfaceForm: str) -> bool:
@@ -226,8 +226,8 @@ class Word:
         bool
             true if it equals to "corp", "inc.", or "co.", and false otherwise.
         """
-        lowerCase = surfaceForm.lower()
-        return lowerCase == "corp" or lowerCase == "inc." or lowerCase == "co."
+        lower_case = surfaceForm.lower()
+        return lower_case == "corp" or lower_case == "inc." or lower_case == "co."
 
     @staticmethod
     def isMoney(surfaceForm: str) -> bool:
@@ -247,11 +247,11 @@ class Word:
             true if it equals to one of the dolar, sterlin, paunt, ons, ruble, mark, frank, yan, sent, yen' or $, and
             false otherwise.
         """
-        lowerCase = surfaceForm.lower()
-        return lowerCase.startswith("dolar") or lowerCase.startswith("sterlin") or lowerCase.startswith("paunt") or \
-               lowerCase.startswith("ons") or lowerCase.startswith("ruble") or lowerCase.startswith("mark") or \
-               lowerCase.startswith("frank") or lowerCase == "yen" or lowerCase.startswith("sent") or \
-               lowerCase.startswith("cent") or lowerCase.startswith("yen'") or ("$" in lowerCase)
+        lower_case = surfaceForm.lower()
+        return lower_case.startswith("dolar") or lower_case.startswith("sterlin") or lower_case.startswith("paunt") or \
+               lower_case.startswith("ons") or lower_case.startswith("ruble") or lower_case.startswith("mark") or \
+               lower_case.startswith("frank") or lower_case == "yen" or lower_case.startswith("sent") or \
+               lower_case.startswith("cent") or lower_case.startswith("yen'") or ("$" in lower_case)
 
     def isPunctuation(self) -> bool:
         """
@@ -287,23 +287,23 @@ class Word:
         bool
             true if it presents time, and false otherwise.
         """
-        lowerCase = surfaceForm.lower()
-        if re.fullmatch("(\\d\\d|\\d):(\\d\\d|\\d):(\\d\\d|\\d)", lowerCase) is not None or \
-                re.fullmatch("(\\d\\d|\\d):(\\d\\d|\\d)", lowerCase) is not None:
+        lower_case = surfaceForm.lower()
+        if re.fullmatch("(\\d\\d|\\d):(\\d\\d|\\d):(\\d\\d|\\d)", lower_case) is not None or \
+                re.fullmatch("(\\d\\d|\\d):(\\d\\d|\\d)", lower_case) is not None:
             return True
-        if lowerCase.startswith("ocak") or lowerCase.startswith("şubat") or lowerCase.startswith("mart") or \
-                lowerCase.startswith("nisan") or lowerCase.startswith("mayıs") or lowerCase.startswith("haziran") \
-                or lowerCase.startswith("temmuz") or lowerCase.startswith("ağustos") or lowerCase.startswith("eylül") \
-                or lowerCase.startswith("ekim") or lowerCase.startswith("kasım") or lowerCase == "aralık":
+        if lower_case.startswith("ocak") or lower_case.startswith("şubat") or lower_case.startswith("mart") or \
+                lower_case.startswith("nisan") or lower_case.startswith("mayıs") or lower_case.startswith("haziran") \
+                or lower_case.startswith("temmuz") or lower_case.startswith("ağustos") or lower_case.startswith("eylül") \
+                or lower_case.startswith("ekim") or lower_case.startswith("kasım") or lower_case == "aralık":
             return True
-        if lowerCase == "pazar" or lowerCase == "salı" or lowerCase.startswith("çarşamba") or \
-                lowerCase.startswith("perşembe") or lowerCase == "cuma" or lowerCase.startswith("cumartesi") \
-                or lowerCase.startswith("pazartesi"):
+        if lower_case == "pazar" or lower_case == "salı" or lower_case.startswith("çarşamba") or \
+                lower_case.startswith("perşembe") or lower_case == "cuma" or lower_case.startswith("cumartesi") \
+                or lower_case.startswith("pazartesi"):
             return True
-        if "'" in lowerCase:
-            lowerCase = lowerCase[0:lowerCase.find("'")]
+        if "'" in lower_case:
+            lower_case = lower_case[0:lower_case.find("'")]
         try:
-            time = int(lowerCase)
+            time = int(lower_case)
             if 1900 < time < 2200:
                 return True
         except ValueError:
@@ -345,3 +345,6 @@ class Word:
         for i in range(len(self.name)):
             characters.append(Word(self.name[i]))
         return characters
+
+    def __repr__(self):
+        return self.name

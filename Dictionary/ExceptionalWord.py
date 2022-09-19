@@ -47,3 +47,6 @@ class ExceptionalWord(Word):
             pos variable.
         """
         return self.__pos
+
+    def __repr__(self):
+        return f"{self.name} {self.__root} {self.__pos}"

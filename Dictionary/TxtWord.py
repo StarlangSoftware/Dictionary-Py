@@ -7,7 +7,9 @@ class TxtWord(Word):
     __flags: list
     __morphology: str
 
-    def __init__(self, name: str, flag=None):
+    def __init__(self,
+                 name: str,
+                 flag=None):
         """
         Another constructor of TxtWord class which takes a String name and a flag as inputs and calls its super class
         Word with given name. Then, creates a new list as flags and calls addFlag method with given flag.
@@ -884,3 +886,6 @@ class TxtWord(Word):
         for flag in self.__flags:
             result = result + " " + flag
         return result
+
+    def __repr__(self):
+        return f"{self.name} {self.__flags} {self.__morphology}"
