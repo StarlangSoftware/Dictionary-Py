@@ -1,4 +1,6 @@
 import math
+from functools import cmp_to_key
+
 from Math.Vector import Vector
 from Dictionary.Dictionary import Dictionary
 from Dictionary.VectorizedWord import VectorizedWord
@@ -6,11 +8,23 @@ from Dictionary.VectorizedWord import VectorizedWord
 
 class VectorizedDictionary(Dictionary):
 
-    def __init__(self, comparator=None):
+    def __init__(self, comparator=None, fileName=None):
         """
         A constructor of VectorizedDictionary class which calls its super class Dictionary.
         """
         super().__init__(comparator)
+        if fileName is not None:
+            input_file = open(fileName, "r", encoding="utf8")
+            lines = input_file.readlines()
+            for line in lines:
+                items = line.split()
+                vector = Vector(0, 0)
+                for i in range(1, len(items)):
+                    vector.add(float(items[i]))
+                current_word = VectorizedWord(items[0], vector)
+                self.words.append(current_word)
+            input_file.close()
+            self.words.sort(key=cmp_to_key(self.comparator))
 
     def addWord(self, word: VectorizedWord):
         """
