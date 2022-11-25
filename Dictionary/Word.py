@@ -268,6 +268,30 @@ class Word:
                self.name == "``" or self.name == "..." or self.name == "-" or self.name == "--"
 
     @staticmethod
+    def toLower(surfaceForm: str) -> str:
+        result = ""
+        for i in range(len(surfaceForm)):
+            if surfaceForm[i] == "I":
+                result += "ı"
+            else:
+                result += surfaceForm[i].lower()
+        return result
+
+    @staticmethod
+    def toUpper(surfaceForm: str) -> str:
+        result = ""
+        for i in range(len(surfaceForm)):
+            if surfaceForm[i] == "i":
+                result += "İ"
+            else:
+                result += surfaceForm[i].upper()
+        return result
+
+    @staticmethod
+    def toCapital(surfaceForm: str) -> str:
+        return Word.toUpper(surfaceForm[0]) + surfaceForm[1:]
+
+    @staticmethod
     def isTime(surfaceForm: str) -> bool:
         """
         The isTime method takes a String surfaceForm as an input and after converting it to lower case it checks some

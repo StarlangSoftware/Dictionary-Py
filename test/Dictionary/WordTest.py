@@ -15,6 +15,12 @@ class WordTest(unittest.TestCase):
         word = Word("çöğüşı")
         self.assertEqual(6, word.charCount())
 
+    def test_ToCapital(self):
+        self.assertEqual("Ali", Word.toCapital("ali"))
+        self.assertEqual("İlginç", Word.toCapital("ilginç"))
+        self.assertEqual("Issız", Word.toCapital("ıssız"))
+        self.assertEqual("Ç", Word.toCapital("ç"))
+
     def test_IsCapital(self):
         self.assertFalse(Word.isCapital("ali"))
         self.assertTrue(Word.isCapital("Ali"))
