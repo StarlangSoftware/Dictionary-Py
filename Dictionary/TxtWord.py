@@ -50,9 +50,17 @@ class TxtWord(Word):
         self.__flags.remove(flag)
 
     def getMorphology(self)-> str:
+        """
+        Accessor for the inner morphology of the word.
+        :return: Inner morphology of the word.
+        """
         return self.__morphology
 
     def setMorphology(self, morphology: str):
+        """
+        Mutator for the inner morphology of the word.
+        :param morphology: New inner morphology of the word.
+        """
         self.__morphology = morphology
 
     def verbType(self) -> str:

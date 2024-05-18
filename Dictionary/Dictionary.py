@@ -19,6 +19,14 @@ class Dictionary:
 
     @staticmethod
     def turkishLowerCaseComparator(wordA: Word, wordB: Word):
+        """
+        Compares two words in a case-sensitive manner.
+        :param wordA: First word to compare.
+        :param wordB: Second word to compare.
+        :return: the value 0 if the wordA is equal to the wordB; a value less than 0 if this wordA is
+        lexicographically less than wordB; and a value greater than 1 if this wordA is lexicographically greater
+        than wordB.
+        """
         LOWERCASE_LETTERS = "abcçdefgğhıijklmnoöprsştuüvyz"
         for i in range(min(len(wordA.getName()), len(wordB.getName()))):
             first_char = wordA.getName()[i:i + 1]
@@ -44,6 +52,14 @@ class Dictionary:
 
     @staticmethod
     def turkishIgnoreCaseComparator(wordA: Word, wordB: Word):
+        """
+        Compares two words in a case-insensitive manner.
+        :param wordA: First word to compare.
+        :param wordB: Second word to compare.
+        :return: the value 0 if the wordA is equal to the wordB; a value less than 0 if this wordA is
+        lexicographically less than wordB; and a value greater than 1 if this wordA is lexicographically greater
+        than wordB.
+        """
         IGNORE_CASE_LETTERS = "aAbBcCçÇdDeEfFgGğĞhHıIiİjJkKlLmMnNoOöÖpPrRsSşŞtTuUüÜvVyYzZ"
         for i in range(min(len(wordA.getName()), len(wordB.getName()))):
             first_char = wordA.getName()[i:i + 1]
@@ -167,6 +183,13 @@ class Dictionary:
         return max_length
 
     def __getPosition(self, word: Word) -> int:
+        """
+        Checks if a given word exists in the dictionary by performing a binary search on the words array.
+        :param word: Searched word
+        :return: the index of the search word, if it is contained in the words array; otherwise,
+        (-(insertion point) - 1). The insertion point is defined as the point at which the word would be inserted into
+        the words array.
+        """
         lo = 0
         hi = len(self.words) - 1
         while lo <= hi:

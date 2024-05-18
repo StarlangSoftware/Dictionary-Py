@@ -269,6 +269,11 @@ class Word:
 
     @staticmethod
     def toLower(surfaceForm: str) -> str:
+        """
+        Converts a given string to its lowercase form.
+        :param surfaceForm: Given input string
+        :return: Lowercase version of the input string
+        """
         result = ""
         for i in range(len(surfaceForm)):
             if surfaceForm[i] == "I":
@@ -279,6 +284,11 @@ class Word:
 
     @staticmethod
     def toUpper(surfaceForm: str) -> str:
+        """
+        Converts a given string to its uppercase form.
+        :param surfaceForm: Given input string
+        :return: Uppercase version of the input string
+        """
         result = ""
         for i in range(len(surfaceForm)):
             if surfaceForm[i] == "i":
@@ -289,6 +299,11 @@ class Word:
 
     @staticmethod
     def toCapital(surfaceForm: str) -> str:
+        """
+        Converts a given string to its capital form.
+        :param surfaceForm: Given input string
+        :return: Capitalized version of the input string
+        """
         return Word.toUpper(surfaceForm[0]) + surfaceForm[1:]
 
     @staticmethod
