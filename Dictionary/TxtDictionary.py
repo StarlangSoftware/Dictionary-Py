@@ -2,6 +2,7 @@ from bisect import bisect_left
 from functools import cmp_to_key
 
 import pkg_resources
+from Util.FileUtils import FileUtils
 
 from Dictionary.Trie.Trie import Trie
 from Dictionary.Dictionary import Dictionary
@@ -300,13 +301,7 @@ class TxtDictionary(Dictionary):
         fileName : str
             File name input.
         """
-        input_file = open(fileName, "r", encoding="utf8")
-        lines = input_file.readlines()
-        for line in lines:
-            word_list = line.split()
-            if len(word_list) == 2:
-                self.__misspelled_words[word_list[0]] = word_list[1]
-        input_file.close()
+        self.__misspelled_words = FileUtils.readHashMap(fileName)
 
     def __loadMorphologicalLexicon(self, fileName: str):
         """
