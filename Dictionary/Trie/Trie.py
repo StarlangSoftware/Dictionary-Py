@@ -29,7 +29,7 @@ class Trie:
         """
         self.__root_node.addWord(word, root)
 
-    def getWordsWithPrefix(self, surfaceForm: str) -> set:
+    def getWordsWithPrefix(self, surfaceForm: str) -> set[Word]:
         """
         The getWordsWithPrefix method which takes a String surfaceForm as an input. First it creates a TrieNode current
         and assigns the rootNode to it, then it creates a new set words. It loops i times where i ranges from 0 to

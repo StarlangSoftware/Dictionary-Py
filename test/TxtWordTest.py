@@ -88,7 +88,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isAdjective():
                 count = count + 1
-        self.assertEqual(9687, count)
+        self.assertEqual(11006, count)
 
     def test_IsPronoun(self):
         count = 0
@@ -216,7 +216,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.notObeysVowelHarmonyDuringAgglutination():
                 count = count + 1
-        self.assertEqual(315, count)
+        self.assertEqual(320, count)
 
     def test_ObeysAndNotObeysVowelHarmonyDuringAgglutination(self):
         count = 0
@@ -232,7 +232,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.rootSoftenDuringSuffixation():
                 count = count + 1
-        self.assertEqual(5530, count)
+        self.assertEqual(6939, count)
 
     def test_RootSoftenAndNotSoftenDuringSuffixation(self):
         count = 0
@@ -240,7 +240,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.rootSoftenAndNotSoftenDuringSuffixation():
                 count = count + 1
-        self.assertEqual(14, count)
+        self.assertEqual(15, count)
 
     def test_VerbSoftenDuringSuffixation(self):
         count = 0
@@ -256,7 +256,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.nounSoftenDuringSuffixation():
                 count = count + 1
-        self.assertEqual(5444, count)
+        self.assertEqual(6853, count)
 
     def test_EndingKChangesIntoG(self):
         count = 0

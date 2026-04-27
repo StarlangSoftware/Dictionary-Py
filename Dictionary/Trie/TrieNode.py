@@ -4,8 +4,8 @@ from Dictionary.Word import Word
 
 class TrieNode:
 
-    __children: dict
-    __words: set
+    __children: dict[str, TrieNode]
+    __words: set[Word]
 
     def __init__(self):
         """
@@ -63,7 +63,7 @@ class TrieNode:
         """
         return self.__children.get(ch)
 
-    def getWords(self) -> set:
+    def getWords(self) -> set[Word]:
         """
         The getWords method returns the words set.
 
