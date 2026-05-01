@@ -2209,7 +2209,7 @@ alıntıla CL_FIIL F4PW F_GUD
 alıntılan CL_FIIL
 alınyazısı CL_ISIM IS_BILEŞ IS_B_SI
 alırlık CL_ISIM IS_SD
-alış CL_FIIL F5PR
+alış CL_FIIL F5PR CL_ISIM
 alışan IS_OA
 alışık IS_ADJ IS_OA IS_SD
 alışıldık IS_ADJ
@@ -4516,7 +4516,7 @@ atım CL_ISIM
 atımcı CL_ISIM
 atımcılık CL_ISIM IS_SD
 atımlık CL_ISIM IS_SD
-atış CL_FIIL F5PR
+atış CL_FIIL F5PR CL_ISIM
 atışma CL_ISIM
 atıştır CL_FIIL
 atıştırmalık CL_ISIM IS_ADJ IS_SD
@@ -5598,7 +5598,7 @@ bağnazlaş CL_FIIL
 bağnazlık CL_ISIM IS_SD
 bağrıaçık IS_OA
 bağrıkara CL_ISIM
-bağrış CL_FIIL F5PR
+bağrış CL_FIIL F5PR CL_ISIM
 bağrışma CL_ISIM
 bağsız IS_ADJ
 baha IS_OA
@@ -5734,7 +5734,7 @@ bakırlaş CL_FIIL
 bakırlı IS_ADJ
 bakırsı IS_ADJ
 bakırtaşı CL_ISIM IS_BILEŞ
-bakış CL_FIIL
+bakış CL_FIIL CL_ISIM
 bakışım CL_ISIM
 bakışımlı IS_ADJ
 bakışımsız IS_ADJ
@@ -8341,7 +8341,7 @@ bitiriş CL_ISIM
 bitirme CL_ISIM
 bitirmiş IS_ADJ
 bitirmişlik CL_ISIM IS_SD
-bitiş CL_FIIL F5PR
+bitiş CL_FIIL F5PR CL_ISIM
 bitişik IS_ADJ IS_SD
 bitişiklik CL_ISIM IS_SD
 bitişimli IS_ADJ
@@ -13501,7 +13501,7 @@ değirmentaşı CL_ISIM IS_BILEŞ
 değirmi CL_ISIM IS_ADJ
 değirmile CL_FIIL F4PW F_GUD
 değirmileş CL_FIIL
-değiş CL_FIIL F5PR IS_DUP
+değiş CL_FIIL F5PR IS_DUP CL_ISIM
 değişici IS_ADJ
 değişik IS_ADJ IS_SD
 değişiklik CL_ISIM IS_SD
@@ -20616,7 +20616,7 @@ geçirim CL_ISIM
 geçirimli IS_ADJ
 geçirimlilik CL_ISIM IS_SD
 geçirimsiz IS_ADJ
-geçiş CL_FIIL F5PR-NO-REF
+geçiş CL_FIIL F5PR-NO-REF CL_ISIM
 geçişim CL_ISIM
 geçişken IS_ADJ
 geçişli IS_ADJ
@@ -20698,7 +20698,7 @@ gelinparmağı CL_ISIM
 gelir CL_ISIM
 gelirli IS_ADJ
 gelirsiz IS_ADJ
-geliş CL_FIIL F5PR-NO-REF
+geliş CL_FIIL F5PR-NO-REF CL_ISIM
 gelişigüzel IS_ADJ
 gelişim CL_ISIM
 gelişimci CL_ISIM
@@ -21093,7 +21093,7 @@ giderme CL_ISIM
 gidi IS_ADJ
 gidici IS_ADJ
 gidimli IS_ADJ
-gidiş CL_FIIL F5PR
+gidiş CL_FIIL F5PR CL_ISIM
 gidişat CL_ISIM
 gidişgeliş CL_ISIM
 gidon CL_ISIM
@@ -21144,7 +21144,7 @@ girimlik CL_ISIM IS_SD
 girinti CL_ISIM
 girintili IS_ADJ
 girintisiz IS_ADJ
-giriş CL_FIIL F5PR
+giriş CL_FIIL F5PR CL_ISIM
 girişik IS_ADJ
 girişim CL_ISIM
 girişimci CL_ISIM
@@ -27719,7 +27719,7 @@ itirazcı IS_ADJ
 itirazlı IS_ADJ
 itirazsız IS_ADVERB
 itirazsızca IS_ADVERB
-itiş CL_FIIL F5PR
+itiş CL_FIIL F5PR CL_ISIM
 itişme CL_ISIM
 itiyat CL_ISIM IS_SD
 itizar CL_ISIM
@@ -28442,7 +28442,7 @@ kaçınma CL_ISIM
 kaçıntı CL_ISIM
 kaçır CL_FIIL
 kaçırma CL_ISIM
-kaçış CL_FIIL
+kaçış CL_FIIL CL_ISIM
 kaçkarlar IS_OA
 kaçkın CL_ISIM
 kaçkınımsı IS_ADJ
@@ -28961,7 +28961,7 @@ kalkersiz IS_ADJ
 kalkık IS_ADJ
 kalkın CL_FIIL F5PR
 kalkınma CL_ISIM
-kalkış CL_FIIL F5PR
+kalkış CL_FIIL F5PR CL_ISIM
 kalkışma CL_ISIM
 kalkojen CL_ISIM
 kalkolitik IS_ADJ
@@ -29368,7 +29368,7 @@ kapalıtohumlular CL_ISIM IS_CA
 kapama CL_ISIM
 kapamacı CL_ISIM
 kapamaç CL_ISIM IS_SD
-kapan CL_FIIL F5PR
+kapan CL_FIIL F5PR CL_ISIM
 kapanca CL_ISIM
 kapancı CL_ISIM
 kapanduygu CL_ISIM
@@ -29410,7 +29410,7 @@ kapımandalı CL_ISIM
 kapıoğlanı CL_ISIM IS_BILEŞ
 kapısı IS_OA
 kapısız IS_ADJ
-kapış CL_FIIL F5PR
+kapış CL_FIIL F5PR CL_ISIM
 kapışıl CL_FIIL
 kapik CL_ISIM IS_SD
 kapital CL_ISIM IS_UU
@@ -31258,7 +31258,7 @@ kesintisiz IS_ADJ
 kesir CL_ISIM IS_UD
 kesirli IS_ADJ
 kesirsiz IS_ADJ
-kesiş CL_FIIL F5PR
+kesiş CL_FIIL F5PR CL_ISIM
 kesişen IS_ADJ
 kesişim CL_ISIM
 kesit CL_ISIM
@@ -32934,7 +32934,7 @@ konuray IS_OA
 konurbey IS_OA
 konuröz IS_OA
 konusuz IS_ADJ
-konuş CL_FIIL F5PR
+konuş CL_FIIL F5PR CL_ISIM
 konuşkan IS_ADJ
 konuşkanlık CL_ISIM IS_SD
 konuşlan CL_FIIL F5PR
@@ -42538,7 +42538,7 @@ oturtma CL_ISIM
 oturtmalık CL_ISIM IS_SD
 oturtum CL_ISIM
 oturum CL_ISIM
-oturuş CL_FIIL
+oturuş CL_FIIL CL_ISIM
 otuz IS_ADJ IS_SAYI
 otuzar IS_ADJ
 otuzarlı IS_ADJ
@@ -43030,7 +43030,7 @@ ozuga CL_ISIM
 öööf IS_INTERJ
 öp CL_FIIL F5PR
 öpücük CL_ISIM IS_SD
-öpüş CL_FIIL
+öpüş CL_FIIL CL_ISIM
 ör CL_FIIL F5PR
 örcin CL_ISIM
 ördek CL_ISIM IS_SD
@@ -43166,7 +43166,7 @@ ozuga CL_ISIM
 ötürü IS_POSTP
 ötürük CL_ISIM IS_SD
 ötürüklü IS_ADJ
-ötüş CL_FIIL F5PR
+ötüş CL_FIIL F5PR CL_ISIM
 ötv IS_KIS IS_OA
 öv CL_FIIL F5PR
 öveç CL_ISIM IS_OA IS_SD
@@ -45158,7 +45158,7 @@ pokerci CL_ISIM
 pokercilik CL_ISIM IS_SD
 pol IS_OA
 pola IS_OA
-polar CL_FIIL F4PR F_DIR
+polar CL_FIIL F4PR F_DIR CL_ISIM
 polargı CL_ISIM
 polarıcı CL_ISIM
 polarimetre CL_ISIM
@@ -57076,7 +57076,7 @@ uçur CL_FIIL F4PR IS_OA
 uçurtma CL_ISIM
 uçurum CL_ISIM
 uçurumlaş CL_FIIL
-uçuş CL_FIIL F5PR
+uçuş CL_FIIL F5PR CL_ISIM
 uçuver CL_FIIL
 ud CL_ISIM
 udi CL_ISIM

@@ -48,7 +48,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isNominal():
                 count = count + 1
-        self.assertEqual(30603, count)
+        self.assertEqual(30625, count)
 
     def test_IsPassive(self):
         count = 0
