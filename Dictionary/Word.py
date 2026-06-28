@@ -263,9 +263,7 @@ class Word:
         bool
             true if name is a punctuation.
         """
-        return self.name == "," or self.name == "." or self.name == "!" or self.name == "?" or self.name == ":" or \
-               self.name == ";" or self.name == "\"" or self.name == "''" or self.name == "'" or self.name == "`" or \
-               self.name == "``" or self.name == "..." or self.name == "-" or self.name == "--"
+        return self.isPunctuationSymbol(self.name)
 
     @staticmethod
     def toLower(surfaceForm: str) -> str:
